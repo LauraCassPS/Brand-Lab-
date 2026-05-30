@@ -1,0 +1,2698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Brand Lab · Pixel &amp; Scale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=Libre+Caslon+Text:wght@400;700&family=Karla:wght@300;400;500;600&family=EB+Garamond:wght@400;500;600&family=Work+Sans:wght@300;400;500;600&family=Crimson+Pro:wght@300;400;500;600&family=Nunito+Sans:wght@300;400;500;600&family=Manrope:wght@300;400;500;600&family=Tenor+Sans&family=Open+Sans:wght@300;400;500;600&family=Italiana&family=Spectral:wght@300;400;500;600&family=Cardo:wght@400;700&family=Albert+Sans:wght@300;400;500;600&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Outfit:wght@300;400;500;600&family=Big+Shoulders+Display:wght@400;500;600;700&family=Archivo:wght@300;400;500;600&family=Marcellus&family=Jost:wght@300;400;500;600&family=Cinzel:wght@400;500;600&family=Lato:wght@300;400;700&family=Syne:wght@400;500;600;700&family=DM+Mono&family=Space+Grotesk:wght@300;400;500;600&family=Anton&family=Archivo+Black&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=IBM+Plex+Serif:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=Yeseva+One&family=Roboto+Slab:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<style>
+:root {
+  --ps-cream: #f6f3ee;
+  --ps-cream-2: #efebe3;
+  --ps-teal: #0b6e7e;
+  --ps-pink: #D62483;
+  --ps-dark: #333333;
+  --ps-line: #e0ddd6;
+  --ps-muted: #8a857d;
+
+  /* live brand vars — updated by JS */
+  --brand-1: #2D4A3E;
+  --brand-2: #F4EEE6;
+  --brand-3: #B8826A;
+  --brand-4: #9AAF9A;
+  --brand-5: #8C8279;
+  --brand-6: #3D3535;
+
+  --heading-font: 'Cormorant Garamond', Georgia, serif;
+  --body-font: 'Inter', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: 'Lora', Georgia, serif;
+  background: var(--ps-cream);
+  color: var(--ps-dark);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+/* ============== P&S BRAND BAR ============== */
+.ps-bar {
+  background: #fff;
+  border-bottom: 1px solid var(--ps-line);
+  padding: 0.85rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ps-bar-logo {
+  font-family: 'Gilda Display', serif;
+  font-size: 18px;
+  color: var(--ps-dark);
+  letter-spacing: 0.01em;
+}
+.ps-bar-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ps-teal);
+  text-decoration: none;
+}
+.ps-bar-link:hover { color: var(--ps-pink); }
+
+.shell {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+}
+
+/* ============== HERO ============== */
+.hero { margin-bottom: 2.25rem; max-width: 720px; }
+
+.eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--ps-teal);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-family: 'Gilda Display', Georgia, serif;
+  font-size: clamp(30px, 4.5vw, 44px);
+  font-weight: 400;
+  color: var(--ps-dark);
+  line-height: 1.1;
+  margin-bottom: 0.6rem;
+}
+
+.subhead {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: var(--ps-muted);
+  line-height: 1.5;
+}
+
+/* ============== DOORS ============== */
+.doors {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-bottom: 1.25rem;
+}
+@media (max-width: 1100px) {
+  .doors { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 720px) {
+  .doors { grid-template-columns: 1fr 1fr; }
+}
+
+.door-tab {
+  background: #fff;
+  border: 1px solid var(--ps-line);
+  border-radius: 4px;
+  padding: 1rem 1.15rem;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+.door-tab:hover { border-color: var(--ps-teal); transform: translateY(-1px); }
+.door-tab.active {
+  background: var(--ps-dark);
+  border-color: var(--ps-dark);
+}
+.door-tab.active .door-eyebrow { color: var(--ps-pink); }
+.door-tab.active .door-title,
+.door-tab.active .door-sub { color: #fff; }
+
+.door-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--ps-muted);
+  margin-bottom: 0.35rem;
+}
+.door-title {
+  font-family: 'Gilda Display', serif;
+  font-size: 18px;
+  color: var(--ps-dark);
+  margin-bottom: 0.25rem;
+}
+.door-sub {
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  color: var(--ps-muted);
+}
+
+/* ============== DOOR CONTENT ============== */
+.door-content {
+  display: none;
+  background: #fff;
+  border: 1px solid var(--ps-line);
+  border-radius: 4px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.75rem;
+}
+.door-content.active { display: block; }
+
+.door-content-header { margin-bottom: 1.25rem; }
+.door-content-header .panel-title {
+  font-family: 'Gilda Display', serif;
+  font-size: 20px;
+  color: var(--ps-dark);
+}
+
+/* ============== DOOR 1: STYLE GRID ============== */
+.library-wrap {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.library-mood-header { margin-bottom: 1rem; }
+.library-mood-title {
+  font-family: 'Gilda Display', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--ps-dark);
+  margin-bottom: 0.35rem;
+}
+.library-mood-desc {
+  font-family: 'Lora', serif;
+  font-size: 13.5px;
+  font-style: italic;
+  color: var(--ps-muted);
+  line-height: 1.45;
+  max-width: 640px;
+}
+
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.lib-card {
+  background: var(--ps-cream);
+  border: 1px solid var(--ps-line);
+  border-radius: 4px;
+  padding: 0.85rem;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+.lib-card:hover {
+  border-color: var(--ps-teal);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.mini-palette {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2px;
+  margin-bottom: 0.6rem;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.mini-sw { height: 26px; }
+
+.lib-name {
+  font-family: 'Lora', serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ps-dark);
+  margin-bottom: 0.25rem;
+}
+.lib-desc {
+  font-family: 'Lora', serif;
+  font-size: 11.5px;
+  font-style: italic;
+  color: var(--ps-muted);
+  line-height: 1.4;
+}
+
+/* ============== DOOR 2: MOOD ============== */
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  margin-bottom: 1.25rem;
+}
+.mood-btn {
+  background: var(--ps-cream);
+  border: 1px solid var(--ps-line);
+  border-radius: 4px;
+  padding: 0.85rem 0.75rem;
+  cursor: pointer;
+  text-align: center;
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  color: var(--ps-dark);
+  line-height: 1.3;
+  transition: all 0.15s ease;
+}
+.mood-btn:hover { border-color: var(--ps-teal); }
+.mood-btn.active {
+  background: var(--ps-teal);
+  border-color: var(--ps-teal);
+  color: #fff;
+}
+
+.mood-result-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ps-muted);
+  margin-bottom: 0.75rem;
+}
+
+.mood-palettes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ============== DOOR 3: PASTE ============== */
+.paste-flow .paste-zone { margin-bottom: 0.85rem; }
+.paste-flow .parse-btn { max-width: 240px; }
+
+/* IMAGE UPLOAD FLOW (Door 4) */
+.image-drop {
+  display: block;
+  border: 2px dashed var(--ps-line);
+  border-radius: 6px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  background: #fff;
+  transition: all 0.15s ease;
+  margin-bottom: 0.85rem;
+}
+.image-drop:hover, .image-drop.is-dragover {
+  border-color: var(--ps-teal);
+  background: var(--ps-cream);
+}
+.image-drop-loaded { display: none; }
+.image-drop.has-image .image-drop-empty { display: none; }
+.image-drop.has-image .image-drop-loaded {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  text-align: left;
+}
+.image-drop-icon {
+  font-family: 'Gilda Display', serif;
+  font-size: 36px;
+  color: var(--ps-teal);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.image-drop-title {
+  font-family: 'Gilda Display', serif;
+  font-size: 18px;
+  color: var(--ps-dark);
+  margin-bottom: 0.35rem;
+}
+.image-drop-sub {
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  color: var(--ps-muted);
+  font-style: italic;
+}
+#imagePreview {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 0.5px solid var(--ps-line);
+}
+.image-extracted-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ps-muted);
+  margin-bottom: 0.5rem;
+}
+.image-extracted-swatches {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  margin-bottom: 0.75rem;
+}
+.image-extracted-swatch {
+  aspect-ratio: 1;
+  border-radius: 3px;
+  border: 0.5px solid rgba(0,0,0,0.08);
+  position: relative;
+}
+.image-extracted-hex {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.85);
+  text-shadow: 0 0 3px rgba(0,0,0,0.4);
+}
+.image-extracted-swatch.light .image-extracted-hex {
+  color: rgba(0,0,0,0.65);
+  text-shadow: 0 0 3px rgba(255,255,255,0.5);
+}
+.image-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* ============== DOWNSTREAM DIVIDER ============== */
+.downstream-divider {
+  height: 1px;
+  background: var(--ps-line);
+  margin: 1.5rem 0 1.75rem;
+}
+
+/* ============== TOPBAR ============== */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--ps-line);
+  border-radius: 4px;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.topbar-brand {
+  font-family: 'Gilda Display', serif;
+  font-size: 17px;
+  color: var(--ps-dark);
+}
+
+.topbar-actions { display: flex; gap: 8px; }
+
+.btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: 3px;
+  border: 1px solid var(--ps-line);
+  background: #fff;
+  color: var(--ps-dark);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.btn:hover { background: var(--ps-cream); border-color: var(--ps-teal); }
+.btn-primary {
+  background: var(--ps-teal);
+  color: #fff;
+  border-color: var(--ps-teal);
+}
+.btn-primary:hover { background: #095560; color: #fff; }
+
+/* ============== MAIN GRID ============== */
+.grid {
+  display: grid;
+  grid-template-columns: 280px 280px 1fr;
+  gap: 14px;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid var(--ps-line);
+  border-radius: 4px;
+  padding: 1.25rem;
+}
+
+.panel-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--ps-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.panel-title {
+  font-family: 'Gilda Display', serif;
+  font-size: 18px;
+  color: var(--ps-dark);
+  margin-bottom: 1rem;
+}
+
+/* PALETTE PANEL */
+.paste-zone {
+  width: 100%;
+  min-height: 80px;
+  background: var(--ps-cream);
+  border: 1px dashed var(--ps-line);
+  border-radius: 3px;
+  padding: 10px 12px;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--ps-dark);
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.paste-zone:focus { border-color: var(--ps-teal); }
+.paste-zone::placeholder { color: var(--ps-muted); }
+
+.parse-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  border: 1px solid var(--ps-teal);
+  background: var(--ps-teal);
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.parse-btn:hover { background: #095560; }
+
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 0.85rem;
+}
+
+.swatch {
+  position: relative;
+  height: 76px;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 0.5px solid rgba(0,0,0,0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+.swatch:hover { transform: translateY(-1px); }
+
+.swatch-role {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.95);
+  text-shadow: 0 0 3px rgba(0,0,0,0.5);
+  line-height: 1.2;
+}
+.swatch.light .swatch-role {
+  color: rgba(0,0,0,0.7);
+  text-shadow: 0 0 3px rgba(255,255,255,0.5);
+}
+
+.swatch-hex {
+  position: absolute;
+  bottom: 5px;
+  left: 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,0.95);
+  text-shadow: 0 0 3px rgba(0,0,0,0.5);
+  letter-spacing: 0.05em;
+}
+.swatch.light .swatch-hex {
+  color: rgba(0,0,0,0.7);
+  text-shadow: 0 0 3px rgba(255,255,255,0.5);
+}
+
+.hint {
+  font-family: 'Lora', serif;
+  font-size: 11px;
+  font-style: italic;
+  color: var(--ps-muted);
+  line-height: 1.4;
+}
+
+.copy-row {
+  display: flex;
+  gap: 4px;
+  margin-top: 0.75rem;
+}
+.copy-btn {
+  flex: 1;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 7px 5px;
+  background: #fff;
+  border: 1px solid var(--ps-line);
+  border-radius: 2px;
+  cursor: pointer;
+  color: var(--ps-dark);
+  transition: all 0.15s ease;
+}
+.copy-btn:hover { background: var(--ps-cream); border-color: var(--ps-teal); color: var(--ps-teal); }
+
+/* TYPOGRAPHY PANEL */
+.font-select-wrap {
+  background: var(--ps-cream);
+  border: 1px solid var(--ps-line);
+  border-radius: 3px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+}
+.font-select-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--ps-muted);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+.font-select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: var(--ps-dark);
+  cursor: pointer;
+  outline: none;
+  padding: 2px 0;
+}
+
+.presets-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--ps-muted);
+  text-transform: uppercase;
+  margin: 1rem 0 0.5rem;
+}
+
+.preset-list {
+  display: grid;
+  gap: 4px;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.preset-list::-webkit-scrollbar { width: 5px; }
+.preset-list::-webkit-scrollbar-thumb { background: var(--ps-line); border-radius: 3px; }
+
+.preset {
+  background: #fff;
+  border: 1px solid var(--ps-line);
+  border-radius: 3px;
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+  width: 100%;
+  font-family: inherit;
+}
+.preset:hover { border-color: var(--ps-teal); }
+.preset.active {
+  background: var(--ps-teal);
+  border-color: var(--ps-teal);
+}
+.preset.active .preset-name,
+.preset.active .preset-pair { color: #fff; }
+.preset.active .preset-pair { opacity: 0.85; }
+
+.preset-name {
+  font-family: 'Lora', serif;
+  font-size: 12.5px;
+  color: var(--ps-dark);
+  margin-bottom: 1px;
+}
+.preset-pair {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--ps-muted);
+  letter-spacing: 0.04em;
+}
+
+/* PREVIEW PANEL */
+.preview-panel { padding: 1.25rem; }
+
+.mockup-frame {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--ps-line);
+  background: var(--bg-light);
+  transition: background-color 0.25s ease;
+}
+
+.mockup-header {
+  background: var(--bg-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  border-bottom: 1px solid var(--muted);
+}
+
+.mockup-logo {
+  font-family: var(--heading-font);
+  font-size: 18px;
+  color: var(--heading);
+  letter-spacing: 0.02em;
+  outline: none;
+}
+
+.mockup-nav { display: flex; gap: 1.5rem; }
+.mockup-nav span {
+  font-family: var(--body-font);
+  font-size: 11.5px;
+  color: var(--body);
+  letter-spacing: 0.06em;
+}
+
+.mockup-section {
+  padding: 2.5rem 1.75rem;
+  position: relative;
+}
+.mockup-section-light     { background: var(--bg-light); }
+.mockup-section-dark      { background: var(--bg-dark); }
+.mockup-section-card-host { background: var(--bg-light); }
+
+.mockup-eyebrow {
+  font-family: var(--body-font);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  outline: none;
+}
+.mockup-section-dark .mockup-eyebrow { color: var(--muted); }
+
+.mockup-headline {
+  font-family: var(--heading-font);
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--heading);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+  outline: none;
+}
+.mockup-section-dark .mockup-headline { color: var(--heading-on-dark); }
+
+.mockup-body {
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--body);
+  margin-bottom: 1.5rem;
+  outline: none;
+}
+.mockup-section-dark .mockup-body { color: var(--body-on-dark); }
+
+.mockup-cta {
+  display: inline-block;
+  background: var(--button-bg);
+  color: var(--button-text);
+  font-family: var(--body-font);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 11px 22px;
+  border-radius: 3px;
+  outline: none;
+  text-decoration: none;
+  cursor: default;
+}
+
+.mockup-divider {
+  height: 1px;
+  width: 64px;
+  background: var(--muted);
+  margin-top: 1.75rem;
+}
+.mockup-section-dark .mockup-divider { background: var(--bg-light); opacity: 0.35; }
+
+.mockup-card {
+  background: var(--muted);
+  padding: 1.75rem 1.5rem;
+  border-radius: 4px;
+}
+.mockup-card .mockup-headline {
+  font-size: clamp(18px, 1.9vw, 22px);
+  margin-bottom: 0.65rem;
+}
+.mockup-card .mockup-body { margin-bottom: 1.25rem; }
+
+.preview-hint {
+  font-family: 'Lora', serif;
+  font-size: 11.5px;
+  font-style: italic;
+  color: var(--ps-muted);
+  margin-top: 0.85rem;
+  text-align: center;
+}
+
+/* ============== SWATCH PICKER POPUP ============== */
+.swatch-picker {
+  display: none;
+  position: fixed;
+  width: 260px;
+  background: #fff;
+  border: 1px solid var(--ps-line);
+  border-radius: 6px;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  z-index: 100;
+  font-family: 'Lora', serif;
+}
+.swatch-picker.show { display: block; }
+.sp-role {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ps-muted);
+  margin-bottom: 0.85rem;
+}
+.sp-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+.sp-colour {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  border: 1px solid var(--ps-line);
+  cursor: pointer;
+  padding: 0;
+  background: transparent;
+}
+.sp-colour::-webkit-color-swatch-wrapper { padding: 2px; }
+.sp-colour::-webkit-color-swatch { border: none; border-radius: 3px; }
+.sp-colour::-moz-color-swatch { border: none; border-radius: 3px; }
+.sp-hex {
+  flex: 1;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  padding: 11px 12px;
+  border: 1px solid var(--ps-line);
+  border-radius: 3px;
+  background: var(--ps-cream);
+  color: var(--ps-dark);
+  text-transform: uppercase;
+  width: 100%;
+  min-width: 0;
+}
+.sp-hex:focus { outline: none; border-color: var(--ps-teal); }
+.sp-actions { display: flex; gap: 8px; }
+.sp-back, .sp-done {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 9px 12px;
+  border-radius: 3px;
+  border: 1px solid var(--ps-line);
+  background: #fff;
+  color: var(--ps-dark);
+  cursor: pointer;
+  flex: 1;
+}
+.sp-back:hover { background: var(--ps-cream); border-color: var(--ps-teal); color: var(--ps-teal); }
+.sp-done {
+  background: var(--ps-teal);
+  color: #fff;
+  border-color: var(--ps-teal);
+}
+.sp-done:hover { background: #095560; }
+
+/* ============== ACCESSIBILITY CHECK ============== */
+.a11y-check {
+  margin-top: 0.85rem;
+  margin-bottom: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--ps-line);
+}
+.a11y-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  color: var(--ps-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.a11y-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+  border-top: 1px solid #f3efe7;
+}
+.a11y-row:first-of-type { border-top: none; }
+.a11y-swatches {
+  display: inline-flex;
+  width: 30px;
+  flex: 0 0 auto;
+}
+.a11y-sw {
+  width: 15px;
+  height: 15px;
+  border-radius: 2px;
+  border: 0.5px solid rgba(0,0,0,0.1);
+}
+.a11y-sw + .a11y-sw { margin-left: -4px; }
+.a11y-label {
+  font-family: 'Lora', serif;
+  font-size: 11.5px;
+  color: var(--ps-dark);
+  line-height: 1.3;
+  flex: 1 1 auto;
+}
+.a11y-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex: 0 0 auto;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--ps-muted);
+}
+.a11y-mark {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 11px;
+  line-height: 1;
+  font-family: 'Lora', serif;
+  font-weight: 600;
+}
+.a11y-mark.pass { background: #2d7a3d; color: #fff; }
+.a11y-mark.fail { background: #c0392b; color: #fff; }
+.a11y-aaa {
+  font-size: 11px;
+  color: var(--ps-teal);
+  line-height: 1;
+}
+.a11y-note {
+  margin-top: 0.85rem;
+  font-family: 'Lora', serif;
+  font-size: 11.5px;
+  font-style: italic;
+  color: var(--ps-muted);
+  line-height: 1.45;
+}
+
+/* ============== POST-EXPORT CTA ============== */
+.post-export {
+  display: none;
+  margin-top: 1.75rem;
+  background: #fff;
+  border: 1px solid var(--ps-line);
+  border-radius: 4px;
+  padding: 1.5rem 1.75rem;
+}
+.post-export.show { display: block; }
+
+.post-export-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ps-pink);
+  margin-bottom: 0.5rem;
+}
+.post-export-title {
+  font-family: 'Gilda Display', serif;
+  font-size: 22px;
+  color: var(--ps-dark);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  max-width: 640px;
+}
+.post-export-btn {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  background: var(--ps-teal);
+  color: #fff;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+.post-export-btn:hover { background: #095560; }
+
+/* ============== FOOTER ============== */
+.footer {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--ps-line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ps-muted);
+}
+.footer a { color: var(--ps-teal); text-decoration: none; }
+.footer a:hover { color: var(--ps-pink); }
+
+/* ============== EXPORT SHEET (off-screen) ============== */
+.export-sheet {
+  position: fixed;
+  top: -10000px;
+  left: -10000px;
+  width: 1200px;
+  background: #fff;
+  padding: 60px;
+  font-family: 'Lora', serif;
+}
+.export-sheet .es-header { margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid #e0ddd6; }
+.export-sheet .es-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px; letter-spacing: 0.22em;
+  color: #0b6e7e; text-transform: uppercase; margin-bottom: 8px;
+}
+.export-sheet .es-title {
+  font-family: 'Gilda Display', serif;
+  font-size: 42px; color: #333; font-weight: 400;
+}
+.export-sheet .es-section { margin-bottom: 40px; }
+.export-sheet .es-section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; letter-spacing: 0.2em;
+  color: #8a857d; text-transform: uppercase; margin-bottom: 16px;
+}
+.export-sheet .es-swatches { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+.export-sheet .es-swatch { aspect-ratio: 1; border-radius: 4px; position: relative; border: 0.5px solid rgba(0,0,0,0.06); }
+.export-sheet .es-swatch-label {
+  position: absolute; bottom: 8px; left: 10px;
+  font-family: 'DM Mono', monospace; font-size: 11px;
+  color: rgba(255,255,255,0.95); text-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+.export-sheet .es-swatch.light .es-swatch-label { color: rgba(0,0,0,0.75); text-shadow: 0 0 3px rgba(255,255,255,0.5); }
+
+.export-sheet .es-fonts {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+}
+.export-sheet .es-font-card {
+  background: #faf8f4; padding: 24px; border-radius: 4px; border: 1px solid #efebe3;
+}
+.export-sheet .es-font-role {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.18em; color: #8a857d;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.export-sheet .es-font-name {
+  font-size: 28px; color: #333; line-height: 1.1; margin-bottom: 8px;
+}
+.export-sheet .es-font-sample {
+  font-size: 14px; color: #555; line-height: 1.5;
+}
+
+.export-sheet .es-mockup-wrap { border: 1px solid #efebe3; border-radius: 4px; overflow: hidden; }
+
+.export-sheet .es-footer {
+  margin-top: 40px; padding-top: 20px;
+  border-top: 1px solid #e0ddd6;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.16em;
+  color: #8a857d; text-transform: uppercase;
+  display: flex; justify-content: space-between;
+}
+
+/* ============== TOAST ============== */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--ps-dark);
+  color: #fff;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  border-radius: 3px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ============== TOUCH MODE ============== */
+body.is-touch .swatch-swap { display: flex; }
+body.is-touch .hint .desktop-only { display: none; }
+body:not(.is-touch) .hint .touch-only { display: none; }
+
+/* ============== MOBILE BREAKPOINTS ============== */
+@media (max-width: 1100px) {
+  .library-grid { grid-template-columns: repeat(2, 1fr); }
+  .grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 800px) {
+  .ps-bar { padding: 0.75rem 1.25rem; }
+  .shell { padding: 1.75rem 1.25rem 3rem; }
+
+  .doors { grid-template-columns: 1fr; }
+
+  .door-content { padding: 1.25rem; }
+
+  .library-grid { grid-template-columns: 1fr; }
+  .mood-grid { grid-template-columns: repeat(2, 1fr); }
+  .mood-palettes { grid-template-columns: 1fr; }
+
+  .topbar { flex-direction: column; gap: 10px; align-items: stretch; }
+  .topbar-actions { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+  .btn { padding: 10px 12px; }
+
+  .mockup-header { padding: 1rem 1.25rem; }
+  .mockup-nav { gap: 0.85rem; }
+  .mockup-section { padding: 2.5rem 1.25rem; }
+  .mockup-card { padding: 1.75rem 1.5rem; }
+
+  /* keep contenteditable visible above iOS keyboard */
+  [contenteditable="true"] { scroll-margin-top: 80px; scroll-margin-bottom: 80px; }
+
+  .footer { flex-direction: column; gap: 8px; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .library-grid { grid-template-columns: 1fr; }
+  .swatch-grid { grid-template-columns: repeat(2, 1fr); }
+  .post-export { padding: 1.25rem; }
+  .post-export-title { font-size: 18px; }
+}
+
+/* ============== SAVE MODAL ============== */
+.save-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 400;
+  align-items: center;
+  justify-content: center;
+}
+.save-overlay.open { display: flex; }
+
+.save-dialog {
+  background: #fff;
+  border: 1px solid var(--ps-line);
+  border-radius: 6px;
+  padding: 1.75rem 2rem;
+  width: 380px;
+  max-width: calc(100vw - 2rem);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.14);
+}
+.save-dialog-title {
+  font-family: 'Gilda Display', serif;
+  font-size: 20px;
+  color: var(--ps-dark);
+  margin-bottom: 0.35rem;
+}
+.save-dialog-sub {
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  color: var(--ps-muted);
+  font-style: italic;
+  margin-bottom: 1.25rem;
+}
+.save-dialog-preview {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 3px;
+  margin-bottom: 1.1rem;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.save-dialog-sw { height: 28px; }
+.save-name-input {
+  width: 100%;
+  font-family: 'Lora', serif;
+  font-size: 14px;
+  color: var(--ps-dark);
+  background: var(--ps-cream);
+  border: 1px solid var(--ps-line);
+  border-radius: 3px;
+  padding: 9px 12px;
+  outline: none;
+  margin-bottom: 1rem;
+  transition: border-color 0.15s;
+}
+.save-name-input:focus { border-color: var(--ps-teal); }
+.save-name-input::placeholder { color: var(--ps-muted); }
+.save-dialog-actions { display: flex; gap: 8px; justify-content: flex-end; }
+
+/* delete button on saved client cards */
+.client-card-wrap { position: relative; }
+.client-card-wrap .lib-card { width: 100%; }
+.client-delete {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--ps-line);
+  background: #fff;
+  color: var(--ps-muted);
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.15s, color 0.15s;
+}
+.client-card-wrap:hover .client-delete { opacity: 1; }
+.client-delete:hover { color: #c0392b; border-color: #c0392b; }
+</style>
+</head>
+<body>
+
+<header class="ps-bar">
+  <div class="ps-bar-logo">Pixel &amp; Scale</div>
+  <a class="ps-bar-link" href="https://pixelandscale.com" target="_blank" rel="noopener">pixelandscale.com</a>
+</header>
+
+<div class="shell">
+
+  <section class="hero">
+    <div class="eyebrow">Brand Lab</div>
+    <h1>Build your visual brand</h1>
+    <div class="subhead">Pick colours. Pick fonts. See them in a live mockup. Download a brand sheet.</div>
+  </section>
+
+  <!-- ============== DOORS ============== -->
+  <div class="doors" role="tablist">
+    <button class="door-tab active" data-door="1" role="tab">
+      <div class="door-eyebrow">01</div>
+      <div class="door-title">Browse styles</div>
+      <div class="door-sub">Ten ready-made looks.</div>
+    </button>
+    <button class="door-tab" data-door="2" role="tab">
+      <div class="door-eyebrow">02</div>
+      <div class="door-title">Build from a mood</div>
+      <div class="door-sub">Start from a feeling.</div>
+    </button>
+    <button class="door-tab" data-door="3" role="tab">
+      <div class="door-eyebrow">03</div>
+      <div class="door-title">Already have colours?</div>
+      <div class="door-sub">Paste hex codes.</div>
+    </button>
+    <button class="door-tab" data-door="4" role="tab">
+      <div class="door-eyebrow">04</div>
+      <div class="door-title">From an image</div>
+      <div class="door-sub">Drop a photo.</div>
+    </button>
+    <button class="door-tab" data-door="5" role="tab">
+      <div class="door-eyebrow">05</div>
+      <div class="door-title">Pixel &amp; Scale clients</div>
+      <div class="door-sub">Saved client palettes.</div>
+    </button>
+  </div>
+
+  <!-- DOOR 1 -->
+  <section class="door-content active" data-door="1">
+    <div class="door-content-header">
+      <div class="panel-eyebrow">Browse styles</div>
+      <div class="panel-title">Pick a look. Tweak it after.</div>
+    </div>
+    <div class="library-wrap" id="libraryWrap"></div>
+  </section>
+
+  <!-- DOOR 2 -->
+  <section class="door-content" data-door="2">
+    <div class="door-content-header">
+      <div class="panel-eyebrow">Build from a mood</div>
+      <div class="panel-title">Pick a feeling.</div>
+    </div>
+    <div class="mood-grid" id="moodGrid"></div>
+    <div class="mood-result" id="moodResult"></div>
+  </section>
+
+  <!-- DOOR 3 -->
+  <section class="door-content" data-door="3">
+    <div class="door-content-header">
+      <div class="panel-eyebrow">Already have colours?</div>
+      <div class="panel-title">Paste hex codes from anywhere.</div>
+    </div>
+    <div class="paste-flow">
+      <textarea class="paste-zone" id="pasteZone" placeholder="Paste hex codes, CSS variables, or any text containing colours…"></textarea>
+      <button class="parse-btn" id="parseBtn">Extract colours</button>
+    </div>
+  </section>
+
+  <!-- DOOR 4 -->
+  <section class="door-content" data-door="4">
+    <div class="door-content-header">
+      <div class="panel-eyebrow">From an image</div>
+      <div class="panel-title">Upload a photo. We pull the colours.</div>
+    </div>
+    <label class="image-drop" id="imageDrop">
+      <input type="file" id="imageInput" accept="image/*" hidden>
+      <div class="image-drop-empty">
+        <div class="image-drop-icon">+</div>
+        <div class="image-drop-title">Drop an image or click to upload</div>
+        <div class="image-drop-sub">JPG, PNG, WebP. Works best with photos that have a clear colour story.</div>
+      </div>
+      <div class="image-drop-loaded">
+        <img id="imagePreview" alt="Uploaded image preview">
+        <div>
+          <div class="image-extracted-label">Extracted palette</div>
+          <div class="image-extracted-swatches" id="imageExtracted"></div>
+          <div class="image-drop-sub">Loaded into the brand sheet below. Click any swatch there to edit.</div>
+        </div>
+      </div>
+    </label>
+    <div class="image-actions">
+      <button class="btn" id="imageReextractBtn" style="display:none">Re-extract</button>
+      <button class="btn" id="imageClearBtn" style="display:none">Upload different image</button>
+    </div>
+  </section>
+
+  <!-- DOOR 5 -->
+  <section class="door-content" data-door="5">
+    <div class="door-content-header">
+      <div class="panel-eyebrow">Pixel &amp; Scale clients</div>
+      <div class="panel-title">Saved client palettes.</div>
+    </div>
+    <div class="library-grid" id="clientGrid"></div>
+  </section>
+
+  <div class="downstream-divider" id="downstreamAnchor"></div>
+
+  <!-- ============== DOWNSTREAM TOOL ============== -->
+  <div class="topbar">
+    <div class="topbar-brand">Your brand sheet</div>
+    <div class="topbar-actions">
+      <button class="btn" id="resetBtn">Reset</button>
+      <button class="btn" id="saveClientBtn">Save to clients</button>
+      <button class="btn btn-primary" id="exportBtn">Export PNG</button>
+    </div>
+  </div>
+
+  <!-- Save palette modal -->
+  <div class="save-overlay" id="saveOverlay">
+    <div class="save-dialog">
+      <div class="save-dialog-title">Save palette</div>
+      <div class="save-dialog-sub">Give this palette a client name. It will appear in Door 05 — Pixel &amp; Scale clients.</div>
+      <div class="save-dialog-preview" id="savePreviewSwatches"></div>
+      <input class="save-name-input" id="saveNameInput" type="text" placeholder="e.g. Sarah Thompson" maxlength="60" />
+      <div class="save-dialog-actions">
+        <button class="btn" id="saveCancelBtn">Cancel</button>
+        <button class="btn btn-primary" id="saveConfirmBtn">Save palette</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <!-- PALETTE PANEL -->
+    <div class="panel">
+      <div class="panel-eyebrow">01 · Palette</div>
+      <div class="panel-title">Six colours</div>
+
+      <div class="swatch-grid" id="swatchGrid"></div>
+
+      <div class="hint">
+        Click any swatch to edit its hex. Each slot has a fixed role — the order can't change.
+      </div>
+
+      <div class="a11y-check">
+        <div class="a11y-eyebrow">Accessibility check</div>
+        <div id="a11yRows"></div>
+        <div class="a11y-note">A red cross means the text may be hard to read in that combination. Use larger text, bold weight, or adjust the colour to fix it.</div>
+      </div>
+
+      <div class="copy-row">
+        <button class="copy-btn" data-copy="hex">Copy hex</button>
+        <button class="copy-btn" data-copy="css">Copy CSS</button>
+        <button class="copy-btn" data-copy="canva">Copy Canva</button>
+      </div>
+    </div>
+
+    <!-- TYPOGRAPHY PANEL -->
+    <div class="panel">
+      <div class="panel-eyebrow">02 · Typography</div>
+      <div class="panel-title">Font pairing</div>
+
+      <div class="font-select-wrap">
+        <div class="font-select-label">Heading</div>
+        <select class="font-select" id="headingSelect"></select>
+      </div>
+
+      <div class="font-select-wrap">
+        <div class="font-select-label">Body</div>
+        <select class="font-select" id="bodySelect"></select>
+      </div>
+
+      <div class="presets-label">Pairings · 28</div>
+      <div class="preset-list" id="presetList"></div>
+    </div>
+
+    <!-- LIVE PREVIEW PANEL -->
+    <div class="panel preview-panel">
+      <div class="panel-eyebrow">03 · Live preview</div>
+      <div class="panel-title">Mockup</div>
+
+      <div class="mockup-frame" id="mockupFrame">
+        <div class="mockup-header">
+          <div class="mockup-logo" contenteditable="true">Studio Name</div>
+          <div class="mockup-nav">
+            <span>Work</span><span>About</span><span>Contact</span>
+          </div>
+        </div>
+
+        <!-- Section A: light -->
+        <section class="mockup-section mockup-section-light">
+          <div class="mockup-eyebrow" contenteditable="true">THE SERVICE</div>
+          <h2 class="mockup-headline" contenteditable="true">Considered design for established practitioners</h2>
+          <p class="mockup-body" contenteditable="true">A one-page website that reflects the depth of your work and gives your warm leads a clear, confident next step.</p>
+          <a class="mockup-cta" contenteditable="true">Start a conversation</a>
+          <div class="mockup-divider"></div>
+        </section>
+
+        <!-- Section B: dark -->
+        <section class="mockup-section mockup-section-dark">
+          <div class="mockup-eyebrow" contenteditable="true">THE SERVICE</div>
+          <h2 class="mockup-headline" contenteditable="true">Considered design for established practitioners</h2>
+          <p class="mockup-body" contenteditable="true">A one-page website that reflects the depth of your work and gives your warm leads a clear, confident next step.</p>
+          <a class="mockup-cta" contenteditable="true">Start a conversation</a>
+          <div class="mockup-divider"></div>
+        </section>
+
+        <!-- Section C: card on light -->
+        <section class="mockup-section mockup-section-card-host">
+          <div class="mockup-card">
+            <div class="mockup-eyebrow" contenteditable="true">THE SERVICE</div>
+            <h3 class="mockup-headline" contenteditable="true">Considered design for established practitioners</h3>
+            <p class="mockup-body" contenteditable="true">A one-page website that reflects the depth of your work and gives your warm leads a clear, confident next step.</p>
+            <a class="mockup-cta" contenteditable="true">Start a conversation</a>
+          </div>
+        </section>
+      </div>
+
+      <div class="preview-hint">Click any text in the mockup to edit it.</div>
+    </div>
+
+  </div>
+
+  <!-- ============== POST-EXPORT CTA ============== -->
+  <div class="post-export" id="postExport">
+    <div class="post-export-eyebrow">Like what you built?</div>
+    <div class="post-export-title">Pixel &amp; Scale turns this into a one-page website designed around your work.</div>
+    <a class="post-export-btn" href="https://pixelandscale.com" target="_blank" rel="noopener">Book a discovery call →</a>
+  </div>
+
+  <footer class="footer">
+    <span>Brand Lab · Pixel &amp; Scale</span>
+    <a href="https://pixelandscale.com" target="_blank" rel="noopener">pixelandscale.com</a>
+  </footer>
+
+</div>
+
+<!-- OFF-SCREEN EXPORT SHEET -->
+<div class="export-sheet" id="exportSheet"></div>
+
+<div class="swatch-picker" id="swatchPicker" role="dialog" aria-label="Edit swatch">
+  <div class="sp-role" id="spRole"></div>
+  <div class="sp-row">
+    <input type="color" class="sp-colour" id="spColour">
+    <input type="text" class="sp-hex" id="spHex" maxlength="7" spellcheck="false" autocomplete="off">
+  </div>
+  <div class="sp-actions">
+    <button type="button" class="sp-back" id="spBack" title="Revert this colour to what it was before you opened the picker">Back to original</button>
+    <button type="button" class="sp-done" id="spDone">Done</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ============== STATE ==============
+const ROLES = ['background-light', 'background-dark', 'accent', 'heading', 'body', 'muted'];
+
+const ROLE_LABELS = {
+  'background-light': 'Background — light',
+  'background-dark':  'Background — dark',
+  'accent':           'Accent',
+  'heading':          'Heading text',
+  'body':             'Body text',
+  'muted':            'Muted / subtle'
+};
+
+const DEFAULT_PALETTE = [
+  { role: 'background-light', hex: '#F4EEE6' },
+  { role: 'background-dark',  hex: '#3D3535' },
+  { role: 'accent',           hex: '#B8826A' },
+  { role: 'heading',          hex: '#2D4A3E' },
+  { role: 'body',             hex: '#8C8279' },
+  { role: 'muted',            hex: '#9AAF9A' }
+];
+
+let palette = DEFAULT_PALETTE.map(s => ({ ...s }));
+
+function paletteHexes() { return palette.map(s => s.hex); }
+function rolesMap() { return Object.fromEntries(palette.map(s => [s.role, s.hex])); }
+
+const FONT_PAIRINGS = [
+  { name: 'Editorial serif',     heading: 'Cormorant Garamond', body: 'Inter' },
+  { name: 'Soft professional',   heading: 'DM Serif Display',   body: 'DM Sans' },
+  { name: 'Modern minimal',      heading: 'Fraunces',           body: 'Manrope' },
+  { name: 'Classic elegance',    heading: 'Playfair Display',   body: 'Source Sans 3' },
+  { name: 'Warm contemporary',   heading: 'Lora',               body: 'Karla' },
+  { name: 'Refined literary',    heading: 'EB Garamond',        body: 'Work Sans' },
+  { name: 'Quiet authority',     heading: 'Libre Caslon Text',  body: 'Nunito Sans' },
+  { name: 'Pixel & Scale house', heading: 'Gilda Display',      body: 'Lora' },
+  { name: 'Soft modern',         heading: 'Tenor Sans',         body: 'Open Sans' },
+  { name: 'Editorial bold',      heading: 'Bodoni Moda',        body: 'Albert Sans' },
+  { name: 'Crisp minimal',       heading: 'Italiana',           body: 'Outfit' },
+  { name: 'Studio classic',      heading: 'Marcellus',          body: 'Jost' },
+  { name: 'Heritage sans',       heading: 'Cinzel',             body: 'Lato' },
+  { name: 'Contemporary serif',  heading: 'Spectral',           body: 'Inter' },
+  { name: 'Soft scholarly',      heading: 'Cardo',              body: 'Karla' },
+  { name: 'Crimson balance',     heading: 'Crimson Pro',        body: 'Work Sans' },
+  { name: 'Display moderne',     heading: 'Syne',               body: 'Inter' },
+  { name: 'Big & breezy',        heading: 'Big Shoulders Display', body: 'Archivo' },
+  { name: 'Architectural',       heading: 'Playfair Display',   body: 'Space Grotesk' },
+  { name: 'Quiet confidence',    heading: 'Fraunces',           body: 'Albert Sans' },
+  { name: 'Bold statement',      heading: 'Anton',                 body: 'Inter' },
+  { name: 'Industrial heavy',    heading: 'Archivo Black',         body: 'Archivo' },
+  { name: 'Modern editorial',    heading: 'Bricolage Grotesque',   body: 'Inter' },
+  { name: 'Plex sibling',        heading: 'IBM Plex Serif',        body: 'IBM Plex Sans' },
+  { name: 'Display serif bold',  heading: 'Yeseva One',            body: 'Karla' },
+  { name: 'Slab classic',        heading: 'Roboto Slab',           body: 'Roboto' },
+  { name: 'Condensed confident', heading: 'Bebas Neue',            body: 'Lato' },
+  { name: 'Geometric pair',      heading: 'Space Grotesk',         body: 'Plus Jakarta Sans' }
+];
+
+const ALL_FONTS = [...new Set(FONT_PAIRINGS.flatMap(p => [p.heading, p.body]))].sort();
+
+let currentHeading = 'Cormorant Garamond';
+let currentBody = 'Inter';
+
+// ============== PALETTE LIBRARY (parsed from brand-lab-palette-library.md) ==============
+const MOODS_META = [
+  { id: 'warm-earthy',       name: 'Warm & earthy',       description: 'Grounded, natural, warm. Cream, terracotta, sage, ochre, with unexpected notes.' },
+  { id: 'calm-collected',    name: 'Calm & collected',    description: 'Airy and restrained. Blues, soft greens, greys, off-whites.' },
+  { id: 'editorial-refined', name: 'Editorial & refined', description: 'Magazine-feel, confident colour moves. Cream, deep dark, strong accent.' },
+  { id: 'soft-modern',       name: 'Soft & modern',       description: 'Contemporary and friendly. Unexpected pairings, not wellness-coach pastel.' },
+  { id: 'bold-confident',    name: 'Bold & confident',    description: 'Strong colour, high contrast, decisive. Classic confident through retro and pop.' },
+  { id: 'quiet-neutral',     name: 'Quiet & neutral',     description: 'Beige, taupe, off-white, near-black. The professional anchor.' }
+];
+
+const LIB_FONT_FOR_MOOD = {
+  'warm-earthy':       { heading: 'Lora',             body: 'Karla' },
+  'calm-collected':    { heading: 'Spectral',         body: 'Inter' },
+  'editorial-refined': { heading: 'Playfair Display', body: 'Source Sans 3' },
+  'soft-modern':       { heading: 'Fraunces',         body: 'Manrope' },
+  'bold-confident':    { heading: 'DM Serif Display', body: 'DM Sans' },
+  'quiet-neutral':     { heading: 'Marcellus',        body: 'Jost' }
+};
+
+function libSwatches(bgL, bgD, ac, h, b, m) {
+  return { 'background-light': bgL, 'background-dark': bgD, 'accent': ac, 'heading': h, 'body': b, 'muted': m };
+}
+
+const PALETTE_LIBRARY = [
+  // Mood 1 — Warm & earthy
+  { id: '1-1', mood: 'warm-earthy', name: 'Sage & Clay',
+    description: 'Classic baseline. Warm cream background, deep sage anchor, terracotta clay accent.',
+    swatches: libSwatches('#F4EFE6','#3A4A42','#B85C3E','#2A2A28','#4A4A46','#C9C0B0'), button_text: 'white' },
+  { id: '1-2', mood: 'warm-earthy', name: 'Eggplant & Rust',
+    description: 'Putty light, deep eggplant dark, rust accent. Sage as the muted note.',
+    swatches: libSwatches('#DDD0C8','#2D262E','#CE6320','#2D262E','#4C414A','#889368'), button_text: 'white' },
+  { id: '1-3', mood: 'warm-earthy', name: 'Wheat & Cornflower',
+    description: 'Warm wheat background, deep navy-purple dark, soft cornflower accent.',
+    swatches: libSwatches('#F2EBDA','#3D4862','#8B7BAD','#2A2735','#4D4658','#D5C8B8'), button_text: 'white' },
+  { id: '1-4', mood: 'warm-earthy', name: 'Navy, Teal & Ochre',
+    description: 'Putty pink background, deep navy dark, ochre accent, with teal as the muted note.',
+    swatches: libSwatches('#E7D7CB','#0C2252','#D18A3D','#0C2252','#2D3855','#179397'), button_text: 'white' },
+  { id: '1-5', mood: 'warm-earthy', name: 'Cream & Marigold',
+    description: 'Warm cream background, deep umber dark, vibrant marigold accent.',
+    swatches: libSwatches('#F8F1E4','#38302A','#E58B23','#1F1A15','#4A3F35','#C9A87E'), button_text: 'dark' },
+  { id: '1-6', mood: 'warm-earthy', name: 'Linen, Sage & Coral',
+    description: 'Linen background, deep forest sage dark, soft coral accent, sage muted.',
+    swatches: libSwatches('#F2EBE0','#2F3D2F','#DB7A5E','#1A1F1A','#3D453D','#A8B59B'), button_text: 'white' },
+
+  // Mood 2 — Calm & collected
+  { id: '2-1', mood: 'calm-collected', name: 'Cloud & Navy',
+    description: 'Cloud white background, deep navy dark, confident mid-blue accent.',
+    swatches: libSwatches('#F7F8FA','#1E2A3A','#3F6B8C','#1A1A1A','#4A4A4A','#D8DDE3'), button_text: 'white' },
+  { id: '2-2', mood: 'calm-collected', name: 'Mist & Mint',
+    description: 'Pale blue-grey background, deep navy dark, fresh mint accent.',
+    swatches: libSwatches('#E8EEEF','#142948','#95CDBE','#142948','#2A4068','#7D8788'), button_text: 'dark' },
+  { id: '2-3', mood: 'calm-collected', name: 'Pearl & Soft Sage',
+    description: 'Pearl grey background, near-black dark, soft sage accent, blush as the muted note.',
+    swatches: libSwatches('#DDDFE0','#1C191A','#5D8967','#1C191A','#3D3A3B','#F6C9CA'), button_text: 'white' },
+  { id: '2-4', mood: 'calm-collected', name: 'Ivory & Ocean',
+    description: 'Ivory background, deep ocean dark, mid-ocean blue accent, sand muted.',
+    swatches: libSwatches('#FAF8F3','#2A4A5C','#4A7C95','#1F2A2F','#4A565E','#D5CFBE'), button_text: 'white' },
+  { id: '2-5', mood: 'calm-collected', name: 'Forest & Dusty Blue',
+    description: 'Pale blue background, deep forest dark, dusty blue accent, fresh green muted.',
+    swatches: libSwatches('#DFEBF4','#2F5F2B','#869CC0','#1A1F1A','#5C759D','#90B168'), button_text: 'white' },
+  { id: '2-6', mood: 'calm-collected', name: 'Mushroom & Lavender',
+    description: 'Warm mushroom background, deep plum dark, soft lavender accent.',
+    swatches: libSwatches('#ECE7E0','#3D3548','#A89BC4','#1F1A28','#524A5C','#C2BCAF'), button_text: 'white' },
+
+  // Mood 3 — Editorial & refined
+  { id: '3-1', mood: 'editorial-refined', name: 'Cream & Magenta',
+    description: 'Warm cream, near-black dark, strong editorial magenta. The classic.',
+    swatches: libSwatches('#F5EFE6','#181818','#C8246E','#181818','#2F2F2F','#D6CFC0'), button_text: 'white' },
+  { id: '3-2', mood: 'editorial-refined', name: 'Bone, Slate & Burgundy',
+    description: 'Bone background, deep slate dark, burgundy accent, mushroom muted.',
+    swatches: libSwatches('#E9E3E3','#143F4E','#831640','#143F4E','#2F5562','#9D8C84'), button_text: 'white' },
+  { id: '3-3', mood: 'editorial-refined', name: 'Cream, Plum & Bronze',
+    description: 'Warm cream background, deep plum dark, soft caramel accent.',
+    swatches: libSwatches('#F6F0E4','#492243','#D0A271','#181818','#3A3438','#D5CBBB'), button_text: 'white' },
+  { id: '3-4', mood: 'editorial-refined', name: 'Navy, Rose & Sage',
+    description: 'Cream background, navy dark, hot rose accent, sage muted.',
+    swatches: libSwatches('#F3F1ED','#134379','#C53E66','#0F2A4D','#2F4263','#BDD4AD'), button_text: 'white' },
+  { id: '3-5', mood: 'editorial-refined', name: 'Ivory & Cobalt',
+    description: 'Ivory background, near-black dark, bright cobalt accent. Clean and graphic.',
+    swatches: libSwatches('#F4F0E8','#1A1A1A','#1F4E9C','#1A1A1A','#2F2F2F','#D5CBB8'), button_text: 'white' },
+  { id: '3-6', mood: 'editorial-refined', name: 'Cream & Forest with Blush',
+    description: 'Cream background, deep forest dark, soft blush accent.',
+    swatches: libSwatches('#F4EFE3','#1F3325','#E8A4A4','#1A2818','#383834','#D2CBB8'), button_text: 'dark' },
+
+  // Mood 4 — Soft & modern
+  { id: '4-1', mood: 'soft-modern', name: 'Off-white & Coral',
+    description: 'Warm off-white background, deep charcoal dark, coral accent, soft peach muted.',
+    swatches: libSwatches('#FBF7F2','#2A3338','#E37260','#1A2226','#4A535A','#F4DCC5'), button_text: 'white' },
+  { id: '4-2', mood: 'soft-modern', name: 'Cream & Soft Yellow',
+    description: 'Cream background, deep forest dark, soft yellow accent.',
+    swatches: libSwatches('#FAF5E8','#2C3E2C','#E8B842','#1F2A1F','#3D4D3D','#E5D9B8'), button_text: 'dark' },
+  { id: '4-3', mood: 'soft-modern', name: 'Mint Cream & Plum',
+    description: 'Mint cream background, deep plum dark, dusty rose accent, soft sage muted.',
+    swatches: libSwatches('#F0F4ED','#3A2840','#B8718F','#1F1424','#4A3852','#C5D4BA'), button_text: 'white' },
+  { id: '4-4', mood: 'soft-modern', name: 'Peach & Charcoal',
+    description: 'Peach background, sharp charcoal dark, deeper peach accent.',
+    swatches: libSwatches('#FAEDE1','#2A2A2D','#E89576','#1A1A1D','#3D3D40','#C9C2BA'), button_text: 'dark' },
+  { id: '4-5', mood: 'soft-modern', name: 'Lilac Cream & Burnt Orange',
+    description: 'Lilac cream background, deep plum dark, burnt orange accent.',
+    swatches: libSwatches('#F5F0F5','#3D2A38','#D86E3B','#1F1422','#4A3D48','#D9CBD8'), button_text: 'white' },
+  { id: '4-6', mood: 'soft-modern', name: 'Buttercream & Teal',
+    description: 'Buttercream background, deep teal dark, coral accent.',
+    swatches: libSwatches('#FBF3DD','#1F4A4E','#E27C5C','#14333A','#2F5961','#E8D9B5'), button_text: 'white' },
+
+  // Mood 5 — Bold & confident
+  { id: '5-1', mood: 'bold-confident', name: 'Navy & Burnt Orange',
+    description: 'Mint-tinted off-white background, deep navy dark, burnt orange accent.',
+    swatches: libSwatches('#EBF8F8','#1F2D45','#BA563A','#14213D','#2F3D5C','#4F647C'), button_text: 'white' },
+  { id: '5-2', mood: 'bold-confident', name: 'Cream & Electric Blue',
+    description: 'Warm cream background, near-black dark, vibrant electric blue accent.',
+    swatches: libSwatches('#F8F3E8','#181818','#2F4DD8','#0F0F0F','#2A2A2A','#D8CFB8'), button_text: 'white' },
+  { id: '5-3', mood: 'bold-confident', name: 'Mint, Coral & Purple',
+    description: 'Mint background, dark teal-charcoal dark, coral accent, deep purple muted. The pop retro.',
+    swatches: libSwatches('#E4F1ED','#334043','#C87278','#1F2B2D','#4A5A5D','#862D79'), button_text: 'white' },
+  { id: '5-4', mood: 'bold-confident', name: 'Black & Acid Yellow',
+    description: 'Warm cream background, near-black dark, acid yellow accent. Most graphic.',
+    swatches: libSwatches('#F4F0E0','#121212','#D6E852','#0A0A0A','#252525','#D5D0BC'), button_text: 'dark' },
+  { id: '5-5', mood: 'bold-confident', name: 'Hot Pink & Forest',
+    description: 'Warm cream background, deep forest dark, hot pink accent.',
+    swatches: libSwatches('#F5F0E8','#1A3522','#D63A7C','#0F1F14','#2A4030','#D8CFBA'), button_text: 'white' },
+  { id: '5-6', mood: 'bold-confident', name: 'Mustard & Eggplant',
+    description: 'Buttercream background, deep eggplant dark, mustard accent. 70s retro.',
+    swatches: libSwatches('#F2EDD8','#2D1F2D','#D4A02E','#1A0F1A','#3D2D3D','#C49568'), button_text: 'dark' },
+
+  // Mood 6 — Quiet & neutral
+  { id: '6-1', mood: 'quiet-neutral', name: 'Off-white & Charcoal',
+    description: 'The purest version. Off-white, near-black, soft taupe accent.',
+    swatches: libSwatches('#F8F7F4','#1A1A1A','#7D6F5C','#0F0F0F','#2A2A2A','#C8C2B6'), button_text: 'white' },
+  { id: '6-2', mood: 'quiet-neutral', name: 'Linen & Ink',
+    description: 'Warm linen background, deep ink dark, soft brown accent.',
+    swatches: libSwatches('#F2EEE5','#1C1A18','#6E5D48','#14120F','#2F2A24','#C5BCAA'), button_text: 'white' },
+  { id: '6-3', mood: 'quiet-neutral', name: 'Stone & Slate',
+    description: 'Cool stone background, deep slate dark, muted blue-grey accent.',
+    swatches: libSwatches('#ECEAE5','#2A2F35','#5D6770','#1A1F25','#3D4248','#B8B5AE'), button_text: 'white' },
+  { id: '6-4', mood: 'quiet-neutral', name: 'Bone & Espresso',
+    description: 'Bone background, deep espresso dark, mid taupe accent.',
+    swatches: libSwatches('#F0EBE0','#2A1F18','#8B7560','#1F1410','#3D2F26','#C0B5A0'), button_text: 'white' },
+  { id: '6-5', mood: 'quiet-neutral', name: 'Greige & Soft Navy',
+    description: 'Greige background, soft navy dark, muted brass accent. The most colour of the mood (still barely any).',
+    swatches: libSwatches('#EDEAE2','#1F2A38','#8B6D44','#0F1A28','#2F3D52','#B8B2A4'), button_text: 'white' },
+  { id: '6-6', mood: 'quiet-neutral', name: 'Putty & Black',
+    description: 'Warm putty background, true black dark, soft warm grey accent.',
+    swatches: libSwatches('#E8E2D6','#000000','#7D7165','#0A0A0A','#2F2A24','#B5AC9E'), button_text: 'white' }
+];
+
+function libToRoleArray(swatches) {
+  return ROLES.map(role => ({ role, hex: swatches[role] }));
+}
+
+// ============== CLIENT PALETTES (Door 5) ==============
+// Saved palettes for Pixel & Scale client work. Each entry can carry its own
+// heading_font / body_font; non-Google fonts (e.g. Proxima Nova) are honoured
+// via the CSS font-family chain — they render for users with the font installed
+// and fall back to the system default for everyone else.
+const CLIENT_PALETTES = [
+  { id: 'ps-house', name: 'Pixel & Scale',
+    description: 'House brand. Cream background, teal dark, raspberry accent, warm muted.',
+    swatches: libSwatches('#F6F3EE','#0B6E7E','#9E2259','#181715','#5C5C5C','#EFEAE0'),
+    heading_font: 'Gilda Display',
+    body_font: 'Inter',
+    button_text: 'white' },
+  { id: 'ps-angela-b-three', name: 'Angela B three',
+    description: 'Cream background, deep green dark, vivid teal accent, mustard muted.',
+    swatches: libSwatches('#FFFBF0','#2D4A3E','#0098B3','#3D3535','#193438','#E2A732'),
+    heading_font: 'EB Garamond',
+    body_font: 'Proxima Nova',
+    button_text: 'white' },
+  { id: 'ps-kate-project-genius', name: 'Kate project genius',
+    description: 'Warm cream background, deep forest dark, soft gold accent, sage muted.',
+    swatches: libSwatches('#F0E8DC','#3E594C','#C19C5A','#2D4A3E','#2A2A2A','#7B9684'),
+    heading_font: 'Manrope',
+    body_font: 'Inter',
+    button_text: 'white' },
+  { id: 'ps-pixel-and-scale', name: 'Pixel & Scale',
+    description: 'Paper cream background, deep teal dark, magenta pink accent, warm paper muted.',
+    swatches: libSwatches('#F6F3EE','#0B6E7E','#D62483','#333333','#5C5C5C','#EFEAE0'),
+    heading_font: 'Gilda Display',
+    body_font: 'Inter',
+    button_text: 'white' }
+];
+
+// ============== HELPERS ==============
+function isLight(hex) {
+  const c = hex.replace('#', '');
+  const r = parseInt(c.substr(0, 2), 16);
+  const g = parseInt(c.substr(2, 2), 16);
+  const b = parseInt(c.substr(4, 2), 16);
+  return (0.299 * r + 0.587 * g + 0.114 * b) > 160;
+}
+
+function extractHex(text) {
+  const out = [];
+  const seen = new Set();
+  const push = h => { const up = h.toUpperCase(); if (!seen.has(up)) { seen.add(up); out.push(up); } };
+  // Hex codes with a # prefix (anywhere in the text — handles CSS, hex lists, etc.)
+  const withHash = text.match(/#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})\b/g) || [];
+  withHash.forEach(m => {
+    if (m.length === 4) push('#' + m[1] + m[1] + m[2] + m[2] + m[3] + m[3]);
+    else push(m);
+  });
+  // Standalone 6-char hex tokens (no # — handles pasting bare codes one per line)
+  text.split(/[^A-Fa-f0-9]+/).forEach(t => {
+    if (/^[A-Fa-f0-9]{6}$/.test(t)) push('#' + t);
+  });
+  return out;
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+function scrollToDownstream() {
+  const anchor = document.getElementById('downstreamAnchor');
+  if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ============== TOUCH DETECTION + SWAP STATE ==============
+// 'pointer: coarse' means primary input is touch — more accurate than ontouchstart on
+// hybrid laptops that have a touchscreen but a mouse/trackpad as the real pointer.
+const isTouch = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+if (isTouch) document.body.classList.add('is-touch');
+// ============== RENDER SWATCHES ==============
+function renderSwatches() {
+  const grid = document.getElementById('swatchGrid');
+  grid.innerHTML = '';
+  palette.forEach((slot, i) => {
+    const hex = slot.hex;
+    const sw = document.createElement('div');
+    sw.className = 'swatch' + (isLight(hex) ? ' light' : '');
+    sw.style.background = hex;
+    sw.dataset.index = i;
+    sw.dataset.role = slot.role;
+    sw.innerHTML = `
+      <span class="swatch-role">${ROLE_LABELS[slot.role]}</span>
+      <span class="swatch-hex">${hex}</span>
+    `;
+    sw.addEventListener('click', () => editSwatch(i, sw));
+    grid.appendChild(sw);
+  });
+}
+
+// ============== SWATCH PICKER ==============
+// State for the active edit. originalEditHex holds the hex at the moment the
+// picker was opened — clicking "Back to original" reverts to it.
+let activeEditIndex = null;
+let originalEditHex = null;
+
+function positionPickerNearPanel(picker, anchorEl) {
+  const panel = anchorEl ? anchorEl.closest('.panel') : null;
+  const pickerW = 280;
+  if (!panel) return;
+  const r = panel.getBoundingClientRect();
+  if (r.right + 8 + pickerW < window.innerWidth) {
+    picker.style.left = (r.right + 8) + 'px';
+    picker.style.top  = r.top + 'px';
+  } else if (r.left - 8 - pickerW > 0) {
+    picker.style.left = (r.left - 8 - pickerW) + 'px';
+    picker.style.top  = r.top + 'px';
+  } else {
+    // Narrow viewport — open below the whole palette panel
+    picker.style.left = r.left + 'px';
+    picker.style.top  = (r.bottom + 8) + 'px';
+  }
+}
+
+function setPaletteSlotHex(i, hex) {
+  palette[i].hex = hex.toUpperCase();
+  currentButtonPref = null;
+  renderSwatches();
+  applyBrandVars();
+}
+
+function openSwatchPicker(i, anchorEl) {
+  const picker = document.getElementById('swatchPicker');
+  if (!picker) return;
+  activeEditIndex = i;
+  originalEditHex = palette[i].hex;
+  document.getElementById('spRole').textContent = ROLE_LABELS[palette[i].role];
+  const colour = document.getElementById('spColour');
+  colour.value = palette[i].hex;
+  document.getElementById('spHex').value = palette[i].hex;
+  positionPickerNearPanel(picker, anchorEl);
+  picker.classList.add('show');
+  // Auto-fire the native OS colour picker so clicking a swatch goes straight
+  // into the system picker (RGB sliders / wheel) — same UX as before. The hex
+  // input + Back/Done remain visible in the popup for when the user closes the
+  // system picker.
+  setTimeout(() => colour.click(), 0);
+}
+
+function closeSwatchPicker() {
+  const picker = document.getElementById('swatchPicker');
+  if (picker) picker.classList.remove('show');
+  activeEditIndex = null;
+  originalEditHex = null;
+}
+
+function initSwatchPicker() {
+  const colour   = document.getElementById('spColour');
+  const hexInput = document.getElementById('spHex');
+  const back     = document.getElementById('spBack');
+  const done     = document.getElementById('spDone');
+
+  colour.addEventListener('input', e => {
+    if (activeEditIndex === null) return;
+    const hex = e.target.value.toUpperCase();
+    hexInput.value = hex;
+    setPaletteSlotHex(activeEditIndex, hex);
+  });
+
+  hexInput.addEventListener('input', e => {
+    if (activeEditIndex === null) return;
+    let v = e.target.value.trim();
+    if (!v.startsWith('#')) v = '#' + v;
+    if (/^#[A-Fa-f0-9]{6}$/.test(v)) {
+      colour.value = v;
+      setPaletteSlotHex(activeEditIndex, v);
+    }
+  });
+
+  back.addEventListener('click', () => {
+    if (activeEditIndex === null || originalEditHex === null) return;
+    setPaletteSlotHex(activeEditIndex, originalEditHex);
+    colour.value   = originalEditHex;
+    hexInput.value = originalEditHex;
+  });
+
+  done.addEventListener('click', closeSwatchPicker);
+
+  // Close on outside click (but allow clicks on other swatches to re-open elsewhere)
+  document.addEventListener('mousedown', e => {
+    const picker = document.getElementById('swatchPicker');
+    if (!picker || !picker.classList.contains('show')) return;
+    if (picker.contains(e.target)) return;
+    if (e.target.closest && e.target.closest('.swatch')) return;
+    closeSwatchPicker();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeSwatchPicker();
+  });
+}
+
+function editSwatch(i, anchorEl) {
+  openSwatchPicker(i, anchorEl);
+}
+
+function applyBrandVars() {
+  const root = document.documentElement;
+  const byRole = rolesMap();
+  // Role-named vars (the mockup reads these directly)
+  root.style.setProperty('--bg-light', byRole['background-light']);
+  root.style.setProperty('--bg-dark',  byRole['background-dark']);
+  root.style.setProperty('--accent',   byRole['accent']);
+  root.style.setProperty('--heading',  byRole['heading']);
+  root.style.setProperty('--body',     byRole['body']);
+  root.style.setProperty('--muted',    byRole['muted']);
+
+  // Derived vars (computed once per palette change, used by mockup CSS)
+  // Heading auto-invert: if heading is dark, swap to bg-light on dark sections
+  const headingOnDark = hslLightness(byRole['heading']) > 0.5
+    ? byRole['heading']
+    : byRole['background-light'];
+  const bodyOnDark = hslLightness(byRole['body']) > 0.5
+    ? byRole['body']
+    : byRole['background-light'];
+  // Button: prefer accent bg with white/dark text; if neither passes AA Large,
+  // fall back to bg-dark as button background.
+  const btn = computeButtonColours(byRole, currentButtonPref);
+  root.style.setProperty('--heading-on-dark', headingOnDark);
+  root.style.setProperty('--body-on-dark',    bodyOnDark);
+  root.style.setProperty('--button-bg',       btn.bg);
+  root.style.setProperty('--button-text',     btn.text);
+
+  // Legacy positional vars (still set so external consumers / export sheet don't break)
+  root.style.setProperty('--brand-1', byRole['heading']);
+  root.style.setProperty('--brand-2', byRole['background-light']);
+  root.style.setProperty('--brand-3', byRole['accent']);
+  root.style.setProperty('--brand-4', byRole['muted']);
+  root.style.setProperty('--brand-5', byRole['body']);
+  root.style.setProperty('--brand-6', byRole['background-dark']);
+  root.style.setProperty('--mockup-ink', pickInk(byRole['background-light'], paletteHexes()));
+
+  renderA11yCheck();
+}
+
+function hslLightness(hex) {
+  const c = hex.replace('#', '');
+  const r = parseInt(c.substr(0, 2), 16) / 255;
+  const g = parseInt(c.substr(2, 2), 16) / 255;
+  const b = parseInt(c.substr(4, 2), 16) / 255;
+  return (Math.max(r, g, b) + Math.min(r, g, b)) / 2;
+}
+
+function computeButtonColours(byRole, preferText) {
+  // Try white (bg-light) and dark (bg-dark) text on accent; need AA Large (>=3.0).
+  // If a `preferText` hint is supplied (from a library palette's button_text),
+  // honour it when it passes AA Large; otherwise fall through to auto-pick.
+  const accent = byRole['accent'];
+  const light  = byRole['background-light'];
+  const dark   = byRole['background-dark'];
+  const lightOnAccent = contrastRatio(light, accent);
+  const darkOnAccent  = contrastRatio(dark,  accent);
+
+  if (preferText === 'white' && lightOnAccent >= 3) return { bg: accent, text: light };
+  if (preferText === 'dark'  && darkOnAccent  >= 3) return { bg: accent, text: dark };
+
+  if (lightOnAccent >= 3 || darkOnAccent >= 3) {
+    return {
+      bg: accent,
+      text: lightOnAccent >= darkOnAccent ? light : dark
+    };
+  }
+  // Neither passes — fall back to bg-dark as button background
+  return { bg: dark, text: light };
+}
+
+// Library palettes carry an intended button_text ('white'/'dark'). Other entry
+// points (paste, image upload, manual edit) set this to null so the auto-pick
+// runs unbiased.
+let currentButtonPref = null;
+
+// Snapshot of the most-recently-loaded palette + typography. Reset reverts to
+// this, not DEFAULT_PALETTE — so editing then resetting brings the user back
+// to whatever library/paste/image palette they loaded, not the site default.
+let loadedSnapshot = null;
+
+function snapshotLoaded() {
+  loadedSnapshot = {
+    palette: palette.map(s => ({ ...s })),
+    heading: currentHeading,
+    body:    currentBody,
+    buttonPref: currentButtonPref
+  };
+}
+
+function renderA11yCheck() {
+  const wrap = document.getElementById('a11yRows');
+  if (!wrap) return;
+  const byRole = rolesMap();
+  const btn = computeButtonColours(byRole);
+  const pairs = [
+    { label: 'Body text on light background',    fg: byRole['body'],    bg: byRole['background-light'], min: 4.5 },
+    { label: 'Body text on dark background',     fg: byRole['body'],    bg: byRole['background-dark'],  min: 4.5 },
+    { label: 'Heading on light background',      fg: byRole['heading'], bg: byRole['background-light'], min: 3.0 },
+    { label: 'Heading on dark background',       fg: byRole['heading'], bg: byRole['background-dark'],  min: 3.0 },
+    { label: 'Accent on light background',       fg: byRole['accent'],  bg: byRole['background-light'], min: 3.0 },
+    { label: 'Accent on dark background',        fg: byRole['accent'],  bg: byRole['background-dark'],  min: 3.0 },
+    { label: 'Button text on button background', fg: btn.text,          bg: btn.bg,                     min: 3.0 }
+  ];
+  wrap.innerHTML = pairs.map(p => {
+    const ratio = contrastRatio(p.fg, p.bg);
+    const pass = ratio >= p.min;
+    const aaa = ratio >= 7;
+    return `
+      <div class="a11y-row">
+        <span class="a11y-swatches">
+          <span class="a11y-sw" style="background:${p.bg}" aria-hidden="true"></span>
+          <span class="a11y-sw" style="background:${p.fg}" aria-hidden="true"></span>
+        </span>
+        <span class="a11y-label">${p.label}</span>
+        <span class="a11y-status">
+          <span class="a11y-mark ${pass ? 'pass' : 'fail'}" aria-label="${pass ? 'Pass' : 'Fail'}">${pass ? '✓' : '✕'}</span>
+          ${aaa ? '<span class="a11y-aaa" title="Also passes AAA">★</span>' : ''}
+          <span>${ratio.toFixed(2)}:1</span>
+        </span>
+      </div>`;
+  }).join('');
+}
+
+function relLum(hex) {
+  const rgb = hex.replace('#', '').match(/.{2}/g).map(x => {
+    const v = parseInt(x, 16) / 255;
+    return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+  });
+  return 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2];
+}
+
+function contrastRatio(a, b) {
+  const la = relLum(a), lb = relLum(b);
+  const hi = Math.max(la, lb), lo = Math.min(la, lb);
+  return (hi + 0.05) / (lo + 0.05);
+}
+
+function pickInk(bg, pal) {
+  return pal.reduce((best, c) =>
+    contrastRatio(c, bg) > contrastRatio(best, bg) ? c : best
+  , pal[0]);
+}
+
+function chroma(hex) {
+  const c = hex.replace('#', '');
+  const r = parseInt(c.substr(0, 2), 16);
+  const g = parseInt(c.substr(2, 2), 16);
+  const b = parseInt(c.substr(4, 2), 16);
+  return Math.max(r, g, b) - Math.min(r, g, b);
+}
+
+function colourDistance(a, b) {
+  const ca = a.replace('#', ''), cb = b.replace('#', '');
+  const dr = parseInt(ca.substr(0, 2), 16) - parseInt(cb.substr(0, 2), 16);
+  const dg = parseInt(ca.substr(2, 2), 16) - parseInt(cb.substr(2, 2), 16);
+  const db = parseInt(ca.substr(4, 2), 16) - parseInt(cb.substr(4, 2), 16);
+  return Math.sqrt(dr * dr + dg * dg + db * db);
+}
+
+function dedupeColours(hexes, minDistance = 18) {
+  const out = [];
+  for (const h of hexes) {
+    if (out.every(o => colourDistance(h, o) >= minDistance)) out.push(h);
+  }
+  return out;
+}
+
+function assignRoles(rawHexes) {
+  const fallback = DEFAULT_PALETTE.map(s => s.hex);
+  if (!rawHexes || rawHexes.length === 0) return DEFAULT_PALETTE.map(s => ({ ...s }));
+
+  // Exact-dedupe always (drop identical repeats).
+  // Distance-dedupe only when we have MORE candidates than slots — image
+  // extraction can produce visually-similar hexes worth collapsing. Paste
+  // input of exactly 6 should never trigger merging: it would drop a hex the
+  // user typed and pad with DEFAULT_PALETTE colours, replacing their choices.
+  const exactUnique = [...new Set(rawHexes)];
+  const seed = exactUnique.length > 6 ? dedupeColours(exactUnique) : exactUnique;
+  const pool = (seed.length >= 6 ? seed : [...seed, ...fallback.filter(h => !seed.includes(h))]).slice(0, 12);
+
+  const byLum = [...pool].sort((a, b) => relLum(a) - relLum(b));
+  const lightest = byLum[byLum.length - 1];
+  const darkest  = byLum[0];
+
+  let remaining = pool.filter(h => h !== lightest && h !== darkest);
+  if (remaining.length === 0) remaining = fallback.slice();
+
+  const accent = remaining.reduce((best, h) => chroma(h) > chroma(best) ? h : best, remaining[0]);
+
+  let afterAccent = remaining.filter(h => h !== accent);
+  if (afterAccent.length === 0) afterAccent = fallback.slice();
+  const darkSorted = [...afterAccent].sort((a, b) => relLum(a) - relLum(b));
+  const heading = darkSorted.find(h => contrastRatio(h, lightest) >= 4.5) || darkest;
+
+  let afterHeading = afterAccent.filter(h => h !== heading);
+  if (afterHeading.length === 0) afterHeading = fallback.slice();
+  const bodySorted = [...afterHeading].sort((a, b) => relLum(a) - relLum(b));
+  const body = bodySorted.find(h => contrastRatio(h, lightest) >= 4.5) || heading;
+
+  let afterBody = afterHeading.filter(h => h !== body);
+  if (afterBody.length === 0) afterBody = fallback.slice();
+  const muted = afterBody.reduce((best, h) => chroma(h) < chroma(best) ? h : best, afterBody[0]);
+
+  return [
+    { role: 'background-light', hex: lightest },
+    { role: 'background-dark',  hex: darkest },
+    { role: 'accent',           hex: accent },
+    { role: 'heading',          hex: heading },
+    { role: 'body',             hex: body },
+    { role: 'muted',            hex: muted }
+  ];
+}
+
+// ============== TYPOGRAPHY ==============
+function renderFontSelects() {
+  const head = document.getElementById('headingSelect');
+  const body = document.getElementById('bodySelect');
+  head.innerHTML = ALL_FONTS.map(f => `<option value="${f}">${f}</option>`).join('');
+  body.innerHTML = ALL_FONTS.map(f => `<option value="${f}">${f}</option>`).join('');
+  head.value = currentHeading;
+  body.value = currentBody;
+  head.addEventListener('change', e => { currentHeading = e.target.value; applyFonts(); markActivePreset(); });
+  body.addEventListener('change', e => { currentBody = e.target.value; applyFonts(); markActivePreset(); });
+}
+
+function renderPresets() {
+  const list = document.getElementById('presetList');
+  list.innerHTML = '';
+  FONT_PAIRINGS.forEach((p, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'preset';
+    btn.dataset.index = i;
+    btn.innerHTML = `
+      <div class="preset-name">${p.name}</div>
+      <div class="preset-pair">${p.heading} + ${p.body}</div>
+    `;
+    btn.addEventListener('click', () => {
+      currentHeading = p.heading;
+      currentBody = p.body;
+      document.getElementById('headingSelect').value = p.heading;
+      document.getElementById('bodySelect').value = p.body;
+      applyFonts();
+      markActivePreset();
+    });
+    list.appendChild(btn);
+  });
+  markActivePreset();
+}
+
+function markActivePreset() {
+  document.querySelectorAll('.preset').forEach((el, i) => {
+    const p = FONT_PAIRINGS[i];
+    el.classList.toggle('active', p.heading === currentHeading && p.body === currentBody);
+  });
+}
+
+function applyFonts() {
+  const root = document.documentElement;
+  root.style.setProperty('--heading-font', `'${currentHeading}', Georgia, serif`);
+  root.style.setProperty('--body-font', `'${currentBody}', sans-serif`);
+}
+
+// ============== LOAD A LIBRARY PALETTE ==============
+// Inject a font into a select element if it isn't already an option. Used for
+// non-Google fonts (e.g. Proxima Nova) that arrive with client palettes — the
+// font appears in the dropdown only after a palette that uses it is loaded,
+// so unrelated users don't see a font they'll just render as fallback.
+function ensureFontOption(selectId, fontName) {
+  if (!fontName) return;
+  const select = document.getElementById(selectId);
+  if (!select) return;
+  if (![...select.options].some(o => o.value === fontName)) {
+    const opt = document.createElement('option');
+    opt.value = fontName;
+    opt.textContent = fontName;
+    select.appendChild(opt);
+  }
+}
+
+function loadLibraryPalette(p) {
+  palette = libToRoleArray(p.swatches);
+  currentButtonPref = p.button_text || null;
+  // Per-palette font overrides win; else fall back to mood mapping.
+  const moodFonts = LIB_FONT_FOR_MOOD[p.mood] || {};
+  const heading = p.heading_font || moodFonts.heading;
+  const body    = p.body_font    || moodFonts.body;
+  if (heading) {
+    currentHeading = heading;
+    ensureFontOption('headingSelect', heading);
+    document.getElementById('headingSelect').value = currentHeading;
+  }
+  if (body) {
+    currentBody = body;
+    ensureFontOption('bodySelect', body);
+    document.getElementById('bodySelect').value = currentBody;
+  }
+  snapshotLoaded();
+  renderSwatches();
+  applyBrandVars();
+  applyFonts();
+  markActivePreset();
+}
+
+// ============== DOOR 1: PALETTE LIBRARY ==============
+function libCardHTML(p) {
+  const swHTML = ROLES.map(role =>
+    `<span class="mini-sw" style="background:${p.swatches[role]}"></span>`
+  ).join('');
+  return `
+    <button class="lib-card" data-pid="${p.id}">
+      <div class="mini-palette">${swHTML}</div>
+      <div class="lib-name">${p.name}</div>
+      <div class="lib-desc">${p.description}</div>
+    </button>`;
+}
+
+function renderLibrary() {
+  const wrap = document.getElementById('libraryWrap');
+  if (!wrap) return;
+  wrap.innerHTML = MOODS_META.map(m => {
+    const palettes = PALETTE_LIBRARY.filter(p => p.mood === m.id);
+    return `
+      <section class="library-mood">
+        <div class="library-mood-header">
+          <h3 class="library-mood-title">${m.name}</h3>
+          <p class="library-mood-desc">${m.description}</p>
+        </div>
+        <div class="library-grid">${palettes.map(libCardHTML).join('')}</div>
+      </section>`;
+  }).join('');
+  wrap.querySelectorAll('.lib-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const p = PALETTE_LIBRARY.find(x => x.id === card.dataset.pid);
+      if (!p) return;
+      loadLibraryPalette(p);
+      showToast(`Loaded · ${p.name}`);
+      scrollToDownstream();
+    });
+  });
+}
+
+// ============== DOOR 5: PIXEL & SCALE CLIENTS ==============
+const SAVED_CLIENTS_KEY = 'ps-saved-clients';
+
+function loadSavedClients() {
+  try { return JSON.parse(localStorage.getItem(SAVED_CLIENTS_KEY) || '[]'); }
+  catch(e) { return []; }
+}
+
+function persistSavedClients(list) {
+  localStorage.setItem(SAVED_CLIENTS_KEY, JSON.stringify(list));
+}
+
+function savedClientCardHTML(p) {
+  const swHTML = ROLES.map(role =>
+    `<span class="mini-sw" style="background:${p.swatches[role]}"></span>`
+  ).join('');
+  return `
+    <div class="client-card-wrap">
+      <button class="lib-card" data-pid="${p.id}">
+        <div class="mini-palette">${swHTML}</div>
+        <div class="lib-name">${p.name}</div>
+        <div class="lib-desc">${p.description || ''}</div>
+      </button>
+      <button class="client-delete" data-did="${p.id}" title="Remove">&times;</button>
+    </div>`;
+}
+
+function renderClientPalettes() {
+  const grid = document.getElementById('clientGrid');
+  if (!grid) return;
+  const saved = loadSavedClients();
+  const allBuiltIn = CLIENT_PALETTES.map(libCardHTML).join('');
+  const allSaved = saved.map(savedClientCardHTML).join('');
+  grid.innerHTML = allBuiltIn + (saved.length ? `<div class="library-mood-header" style="grid-column:1/-1;margin-top:0.5rem"><div class="library-mood-title" style="font-size:16px">Saved by you</div></div>${allSaved}` : '');
+
+  grid.querySelectorAll('.lib-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const pid = card.dataset.pid;
+      const p = CLIENT_PALETTES.find(x => x.id === pid) || loadSavedClients().find(x => x.id === pid);
+      if (!p) return;
+      loadLibraryPalette(p);
+      showToast(`Loaded · ${p.name}`);
+      scrollToDownstream();
+    });
+  });
+
+  grid.querySelectorAll('.client-delete').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const id = btn.dataset.did;
+      const list = loadSavedClients().filter(x => x.id !== id);
+      persistSavedClients(list);
+      renderClientPalettes();
+      showToast('Removed');
+    });
+  });
+}
+
+// ============== SAVE PALETTE MODAL ==============
+function openSaveModal() {
+  const overlay = document.getElementById('saveOverlay');
+  const input = document.getElementById('saveNameInput');
+  const preview = document.getElementById('savePreviewSwatches');
+  preview.innerHTML = ROLES.map(role => {
+    const hex = palette.find(s => s.role === role)?.hex || '#ccc';
+    return `<span class="save-dialog-sw" style="background:${hex}"></span>`;
+  }).join('');
+  input.value = '';
+  overlay.classList.add('open');
+  setTimeout(() => input.focus(), 50);
+}
+
+function closeSaveModal() {
+  document.getElementById('saveOverlay').classList.remove('open');
+}
+
+document.getElementById('saveClientBtn').addEventListener('click', openSaveModal);
+document.getElementById('saveCancelBtn').addEventListener('click', closeSaveModal);
+document.getElementById('saveOverlay').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeSaveModal();
+});
+
+document.getElementById('saveNameInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') document.getElementById('saveConfirmBtn').click();
+  if (e.key === 'Escape') closeSaveModal();
+});
+
+document.getElementById('saveConfirmBtn').addEventListener('click', () => {
+  const name = document.getElementById('saveNameInput').value.trim();
+  if (!name) { document.getElementById('saveNameInput').focus(); return; }
+  const swatches = {};
+  ROLES.forEach(role => {
+    const slot = palette.find(s => s.role === role);
+    swatches[role] = slot ? slot.hex : '#cccccc';
+  });
+  const entry = {
+    id: 'user-' + Date.now(),
+    name,
+    description: `${currentHeading} · ${currentBody}`,
+    swatches,
+    heading_font: currentHeading,
+    body_font: currentBody,
+    button_text: null
+  };
+  const list = loadSavedClients();
+  list.push(entry);
+  persistSavedClients(list);
+  closeSaveModal();
+  renderClientPalettes();
+  // Switch to Door 5 so the user sees their saved palette
+  document.querySelectorAll('.door-tab').forEach(t => t.classList.toggle('active', t.dataset.door === '5'));
+  document.querySelectorAll('.door-content').forEach(c => c.classList.toggle('active', c.dataset.door === '5'));
+  showToast(`Saved · ${name}`);
+});
+
+// ============== DOOR 2: MOOD FLOW ==============
+function renderMoodGrid() {
+  const grid = document.getElementById('moodGrid');
+  grid.innerHTML = MOODS_META.map(m => `
+    <button class="mood-btn" data-mood="${m.id}">${m.name}</button>
+  `).join('');
+  grid.querySelectorAll('.mood-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      grid.querySelectorAll('.mood-btn').forEach(x => x.classList.toggle('active', x === b));
+      showMoodPalettes(b.dataset.mood);
+    });
+  });
+}
+
+function showMoodPalettes(moodId) {
+  const palettes = PALETTE_LIBRARY.filter(p => p.mood === moodId);
+  const result = document.getElementById('moodResult');
+
+  if (palettes.length === 0) {
+    result.innerHTML = '';
+    return;
+  }
+
+  result.innerHTML = `
+    <div class="mood-result-label">Pick a palette to load</div>
+    <div class="mood-palettes">${palettes.map(libCardHTML).join('')}</div>
+  `;
+
+  result.querySelectorAll('.lib-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const p = PALETTE_LIBRARY.find(x => x.id === card.dataset.pid);
+      if (!p) return;
+      loadLibraryPalette(p);
+      showToast(`Loaded · ${p.name}`);
+      scrollToDownstream();
+    });
+  });
+}
+
+// ============== DOOR TABS ==============
+function initDoors() {
+  document.querySelectorAll('.door-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const d = tab.dataset.door;
+      document.querySelectorAll('.door-tab').forEach(t => t.classList.toggle('active', t === tab));
+      document.querySelectorAll('.door-content').forEach(c => c.classList.toggle('active', c.dataset.door === d));
+    });
+  });
+}
+
+// ============== PARSE PASTED INPUT ==============
+document.getElementById('parseBtn').addEventListener('click', () => {
+  const text = document.getElementById('pasteZone').value;
+  const found = extractHex(text);
+  if (found.length === 0) {
+    showToast('No hex codes found');
+    return;
+  }
+  palette = assignRoles(found);
+  currentButtonPref = null;
+  snapshotLoaded();
+  renderSwatches();
+  applyBrandVars();
+  showToast(`Loaded ${Math.min(found.length, 6)} colour${found.length === 1 ? '' : 's'}`);
+  scrollToDownstream();
+});
+
+// ============== IMAGE UPLOAD (Door 4) ==============
+function extractPaletteFromImage(img, k = 6) {
+  const canvas = document.createElement('canvas');
+  const maxDim = 100;
+  const scale = Math.min(1, maxDim / Math.max(img.naturalWidth, img.naturalHeight));
+  canvas.width = Math.max(1, Math.round(img.naturalWidth * scale));
+  canvas.height = Math.max(1, Math.round(img.naturalHeight * scale));
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+  const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+
+  const pixels = [];
+  for (let i = 0; i < data.length; i += 4) {
+    if (data[i + 3] < 125) continue;
+    pixels.push([data[i], data[i + 1], data[i + 2]]);
+  }
+  if (pixels.length === 0) return [];
+
+  // Median cut: repeatedly split the largest-range box along its longest axis
+  let boxes = [pixels];
+  while (boxes.length < k) {
+    let bestIdx = -1, bestRange = -1, bestAxis = 0;
+    boxes.forEach((box, idx) => {
+      if (box.length < 2) return;
+      for (let axis = 0; axis < 3; axis++) {
+        let min = 255, max = 0;
+        for (const p of box) {
+          if (p[axis] < min) min = p[axis];
+          if (p[axis] > max) max = p[axis];
+        }
+        const range = max - min;
+        if (range > bestRange) { bestRange = range; bestIdx = idx; bestAxis = axis; }
+      }
+    });
+    if (bestIdx === -1) break;
+    const box = boxes[bestIdx];
+    box.sort((a, b) => a[bestAxis] - b[bestAxis]);
+    const mid = Math.floor(box.length / 2);
+    boxes.splice(bestIdx, 1, box.slice(0, mid), box.slice(mid));
+  }
+
+  return boxes.map(box => {
+    let r = 0, g = 0, b = 0;
+    for (const p of box) { r += p[0]; g += p[1]; b += p[2]; }
+    r = Math.round(r / box.length);
+    g = Math.round(g / box.length);
+    b = Math.round(b / box.length);
+    return '#' + [r, g, b].map(v => v.toString(16).padStart(2, '0')).join('').toUpperCase();
+  });
+}
+
+let lastUploadedImage = null;
+
+function renderExtractedPreview(hexes) {
+  const wrap = document.getElementById('imageExtracted');
+  wrap.innerHTML = hexes.map(hex => {
+    const tone = isLight(hex) ? ' light' : '';
+    return `<div class="image-extracted-swatch${tone}" style="background:${hex}">
+      <span class="image-extracted-hex">${hex}</span>
+    </div>`;
+  }).join('');
+}
+
+function loadImageFile(file) {
+  if (!file || !file.type.startsWith('image/')) {
+    showToast('Not an image file');
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = new Image();
+    img.onload = () => {
+      lastUploadedImage = img;
+      const preview = document.getElementById('imagePreview');
+      preview.src = img.src;
+      const hexes = extractPaletteFromImage(img, 8);
+      if (hexes.length === 0) {
+        showToast('Could not extract colours');
+        return;
+      }
+      palette = assignRoles(hexes);
+      currentButtonPref = null;
+      snapshotLoaded();
+      renderExtractedPreview(palette.map(s => s.hex));
+      renderSwatches();
+      applyBrandVars();
+      document.getElementById('imageDrop').classList.add('has-image');
+      document.getElementById('imageReextractBtn').style.display = '';
+      document.getElementById('imageClearBtn').style.display = '';
+      showToast('Palette extracted');
+      scrollToDownstream();
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+document.getElementById('imageInput').addEventListener('change', e => {
+  if (e.target.files && e.target.files[0]) loadImageFile(e.target.files[0]);
+});
+
+const dropEl = document.getElementById('imageDrop');
+['dragenter', 'dragover'].forEach(evt => {
+  dropEl.addEventListener(evt, e => {
+    e.preventDefault();
+    e.stopPropagation();
+    dropEl.classList.add('is-dragover');
+  });
+});
+['dragleave', 'drop'].forEach(evt => {
+  dropEl.addEventListener(evt, e => {
+    e.preventDefault();
+    e.stopPropagation();
+    dropEl.classList.remove('is-dragover');
+  });
+});
+dropEl.addEventListener('drop', e => {
+  const file = e.dataTransfer.files && e.dataTransfer.files[0];
+  if (file) loadImageFile(file);
+});
+
+document.getElementById('imageReextractBtn').addEventListener('click', e => {
+  e.preventDefault();
+  e.stopPropagation();
+  if (!lastUploadedImage) return;
+  const hexes = extractPaletteFromImage(lastUploadedImage, 8);
+  palette = assignRoles(hexes);
+  currentButtonPref = null;
+  snapshotLoaded();
+  renderExtractedPreview(palette.map(s => s.hex));
+  renderSwatches();
+  applyBrandVars();
+  showToast('Re-extracted');
+});
+
+document.getElementById('imageClearBtn').addEventListener('click', e => {
+  e.preventDefault();
+  e.stopPropagation();
+  lastUploadedImage = null;
+  document.getElementById('imageInput').value = '';
+  document.getElementById('imageDrop').classList.remove('has-image');
+  document.getElementById('imageReextractBtn').style.display = 'none';
+  document.getElementById('imageClearBtn').style.display = 'none';
+});
+
+// ============== COPY BUTTONS ==============
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const mode = btn.dataset.copy;
+    let text = '';
+    if (mode === 'hex') {
+      text = palette.map(s => s.hex).join(', ');
+    } else if (mode === 'css') {
+      text = palette.map(s => `--${s.role}: ${s.hex};`).join('\n');
+    } else if (mode === 'canva') {
+      text = palette.map(s => s.hex.replace('#', '')).join('\n');
+    }
+    navigator.clipboard.writeText(text);
+    showToast(`Copied ${mode}`);
+  });
+});
+
+// ============== RESET ==============
+document.getElementById('resetBtn').addEventListener('click', () => {
+  // Revert to the last-loaded palette (library/paste/image), not the site default.
+  // If nothing has been loaded yet, fall back to the snapshot taken at init
+  // (which holds the default palette + default fonts).
+  const snap = loadedSnapshot;
+  if (snap) {
+    palette = snap.palette.map(s => ({ ...s }));
+    currentHeading = snap.heading;
+    currentBody    = snap.body;
+    currentButtonPref = snap.buttonPref;
+  } else {
+    palette = DEFAULT_PALETTE.map(s => ({ ...s }));
+    currentButtonPref = null;
+  }
+  document.getElementById('headingSelect').value = currentHeading;
+  document.getElementById('bodySelect').value    = currentBody;
+  closeSwatchPicker();
+  renderSwatches();
+  applyBrandVars();
+  applyFonts();
+  markActivePreset();
+  document.getElementById('postExport').classList.remove('show');
+  showToast('Reset to loaded palette');
+});
+
+// ============== EXPORT ==============
+document.getElementById('exportBtn').addEventListener('click', async () => {
+  const sheet = document.getElementById('exportSheet');
+  const today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
+  const swatchesHTML = palette.map(s => `
+    <div class="es-swatch ${isLight(s.hex) ? 'light' : ''}" style="background:${s.hex}">
+      <span class="es-swatch-label">${s.hex}</span>
+    </div>
+  `).join('');
+
+  const mockupClone = document.getElementById('mockupFrame').cloneNode(true);
+  mockupClone.style.background = rolesMap()['background-light'];
+
+  sheet.innerHTML = `
+    <div class="es-header">
+      <div class="es-eyebrow">Brand sheet · ${today}</div>
+      <div class="es-title">Palette + Typography</div>
+    </div>
+
+    <div class="es-section">
+      <div class="es-section-label">Palette</div>
+      <div class="es-swatches">${swatchesHTML}</div>
+    </div>
+
+    <div class="es-section">
+      <div class="es-section-label">Typography</div>
+      <div class="es-fonts">
+        <div class="es-font-card">
+          <div class="es-font-role">Heading</div>
+          <div class="es-font-name" style="font-family:'${currentHeading}', Georgia, serif">${currentHeading}</div>
+          <div class="es-font-sample" style="font-family:'${currentHeading}', Georgia, serif">The quick brown fox jumps over the lazy dog.</div>
+        </div>
+        <div class="es-font-card">
+          <div class="es-font-role">Body</div>
+          <div class="es-font-name" style="font-family:'${currentBody}', sans-serif">${currentBody}</div>
+          <div class="es-font-sample" style="font-family:'${currentBody}', sans-serif">The quick brown fox jumps over the lazy dog.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="es-section">
+      <div class="es-section-label">Mockup preview</div>
+      <div class="es-mockup-wrap"></div>
+    </div>
+
+    <div class="es-footer">
+      <span>Created with Brand Lab · pixelandscale.com</span>
+      <span>${today}</span>
+    </div>
+  `;
+
+  sheet.querySelector('.es-mockup-wrap').appendChild(mockupClone);
+
+  showToast('Generating sheet…');
+
+  await document.fonts.ready;
+  await new Promise(r => setTimeout(r, 200));
+
+  try {
+    const canvas = await html2canvas(sheet, {
+      backgroundColor: '#ffffff',
+      scale: 2,
+      useCORS: true,
+      logging: false
+    });
+    canvas.toBlob(blob => {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `brand-sheet-${Date.now()}.png`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      showToast('Exported');
+      document.getElementById('postExport').classList.add('show');
+      // gently scroll the CTA into view
+      setTimeout(() => {
+        document.getElementById('postExport').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 250);
+    });
+  } catch (err) {
+    console.error(err);
+    showToast('Export failed');
+  }
+});
+
+// ============== INIT ==============
+initDoors();
+renderLibrary();
+renderMoodGrid();
+renderClientPalettes();
+renderSwatches();
+applyBrandVars();
+initSwatchPicker();
+snapshotLoaded();
+renderFontSelects();
+renderPresets();
+applyFonts();
+</script>
+
+</body>
+</html>
