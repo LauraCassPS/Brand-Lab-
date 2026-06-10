@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>Brand Lab — Pixel &amp; Scale</title>
+<link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/685e47ed4fc6e9282fe56d00/99827f16-fd08-4c29-8f86-7d0eee9069db/pixel-scale-logo-square.png?format=64w">
+<meta name="viewport" content="width=1280">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Inter:wght@400;500;600&family=Lora:ital,wght@1,400;1,500&family=Poppins:wght@400;500&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f6f3ee;
+    --paper-2: #efeae0;
+    --paper-3: #e6dfd1;
+    --ink: #333333;
+    --ink-2: #5c5c5c;
+    --ink-3: #8a8885;
+    --teal: #0b6e7e;
+    --teal-ink: #064651;
+    --pink: #d62483;
+
+    --font-display: "Gilda Display", "Cormorant Garamond", Georgia, serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-nav: "Poppins", -apple-system, sans-serif;
+    --font-button: "Lato", -apple-system, sans-serif;
+    --font-editorial: "Lora", Georgia, serif;
+
+    --measure: 64ch;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  a { color: var(--teal); text-decoration: none; }
+  a:hover { text-decoration: underline; text-decoration-color: var(--pink); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+
+  ::selection { background: var(--pink); color: var(--paper); }
+
+  /* ---------- Layout ---------- */
+  .wrap {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  /* ---------- Header ---------- */
+  header.site {
+    border-bottom: 1px solid var(--paper-3);
+    background: var(--paper);
+  }
+  header.site .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+  }
+  .wordmark img {
+    display: block;
+    height: 56px;
+    width: auto;
+  }
+  nav.primary {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  nav.primary a {
+    color: var(--ink);
+    font-family: var(--font-nav);
+    font-size: 16px;
+    letter-spacing: 0.01em;
+  }
+  nav.primary a:hover { text-decoration: none; color: var(--teal); }
+  nav.primary a.active {
+    color: var(--teal);
+    position: relative;
+  }
+  nav.primary a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+    height: 2px;
+    background: var(--pink);
+  }
+
+  /* ---------- Typography ---------- */
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+  h1 { font-size: 3.8rem; line-height: 1.3; }
+  h2 { font-size: 2.4rem; line-height: 1.35; }
+  h3 { font-size: 1.8rem; line-height: 1.35; }
+
+  /* Heading emphasis — last 1–2 words in teal-bold-italic.
+     Matches the site signature: "You are Already <em>Established</em>." */
+  .emph { color: var(--teal); font-weight: 700; font-style: italic; font-family: var(--font-editorial); }
+
+  .eyebrow {
+    font-family: var(--font-body);
+    font-style: italic;
+    color: var(--ink-2);
+    font-size: 15px;
+    letter-spacing: 0.06em;
+  }
+
+  p { margin: 0 0 1em 0; }
+
+  .lead {
+    font-family: var(--font-editorial);
+    font-size: 21px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    font-style: italic;
+  }
+
+  .body-line {
+    font-size: 17px;
+    color: var(--ink-2);
+  }
+
+  /* ---------- Pink rules (brand signature) ---------- */
+  .rule {
+    display: block;
+    width: 64px;
+    height: 1.5px;
+    background: var(--pink);
+    border: 0;
+    margin: 0;
+  }
+  .rule.center { margin-left: auto; margin-right: auto; }
+  .rule.long { width: 120px; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 96px 0; }
+  section + section { border-top: 1px solid var(--paper-3); }
+
+  .section-head {
+    text-align: left;
+    margin-bottom: 48px;
+  }
+  .section-head .rule { margin-bottom: 20px; }
+  .section-head h2 { margin-bottom: 12px; }
+  .section-head .intro {
+    font-family: var(--font-editorial);
+    font-size: 19px;
+    color: var(--ink-2);
+    font-style: italic;
+    max-width: 60ch;
+    line-height: 1.5;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-block;
+    font-family: var(--font-button);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    background: var(--teal);
+    color: var(--paper);
+    padding: 16px 32px;
+    border: 1px solid var(--teal);
+    border-radius: 0;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 160ms ease-out, border-color 160ms ease-out;
+  }
+  .btn:hover {
+    background: var(--teal-ink);
+    border-color: var(--teal-ink);
+    color: var(--paper);
+    text-decoration: none;
+  }
+  .btn:focus-visible {
+    outline: 2px solid var(--pink);
+    outline-offset: 3px;
+  }
+  .btn.ghost {
+    background: transparent;
+    color: var(--teal);
+  }
+  .btn.ghost:hover {
+    background: var(--teal);
+    color: var(--paper);
+  }
+
+  /* ---------- Placeholders ---------- */
+  .placeholder {
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-3);
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    position: relative;
+  }
+  .placeholder::before,
+  .placeholder::after {
+    content: "";
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    height: 1px;
+    background: var(--paper-3);
+  }
+  .placeholder::before { top: 24px; }
+  .placeholder::after  { bottom: 24px; }
+  .placeholder .label {
+    background: var(--paper-2);
+    padding: 6px 14px;
+    z-index: 1;
+  }
+  .ph-16x9 { aspect-ratio: 16 / 9; width: 100%; }
+  .ph-4x3  { aspect-ratio: 4 / 3;  width: 100%; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding-top: 80px; padding-bottom: 96px; }
+  .hero .ph-16x9 { margin-bottom: 56px; }
+  .hero h1 { margin-bottom: 20px; max-width: 18ch; }
+  .hero .subhead {
+    font-family: var(--font-display);
+    font-size: 24px;
+    line-height: 1.45;
+    color: var(--ink);
+    margin: 0 0 20px 0;
+    max-width: 52ch;
+  }
+  .hero .body-line { max-width: 56ch; margin-bottom: 36px; }
+  .hero .rule { margin-bottom: 24px; }
+
+  /* ---------- Four ways in ---------- */
+  .four .video-ph { margin-bottom: 64px; }
+  .ways {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 64px;
+    row-gap: 48px;
+  }
+  .way {
+    padding-top: 4px;
+  }
+  .way .num {
+    font-family: var(--font-display);
+    color: var(--pink);
+    font-size: 18px;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+  }
+  .way h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    line-height: 1.25;
+  }
+  .way p {
+    color: var(--ink-2);
+    font-size: 16px;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ---------- What you get ---------- */
+  .what {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .what .section-head { margin-bottom: 28px; }
+  .feature-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .feature-list li {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--paper-3);
+  }
+  .feature-list li:first-child { padding-top: 0; }
+  .feature-list li:last-child { border-bottom: 0; }
+  .feature-list .lead-in {
+    font-family: var(--font-display);
+    color: var(--teal);
+    font-size: 22px;
+    display: block;
+    margin-bottom: 4px;
+    line-height: 1.25;
+  }
+  .feature-list .desc {
+    color: var(--ink-2);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .what .closing {
+    margin-top: 28px;
+    font-style: italic;
+    color: var(--ink-2);
+    font-size: 17px;
+  }
+
+  /* ---------- Who it's for ---------- */
+  .who .section-head { margin-bottom: 32px; }
+  .who-body {
+    max-width: 68ch;
+  }
+  .who-body p {
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--ink);
+    margin: 0 0 1.2em 0;
+  }
+  .who-body p:last-child { margin-bottom: 0; color: var(--ink-2); }
+
+  /* ---------- Sign up ---------- */
+  .signup {
+    background: var(--paper-2);
+    border-top: 1px solid var(--paper-3);
+    border-bottom: 1px solid var(--paper-3);
+  }
+  .signup .inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .signup .rule { margin: 0 auto 20px; }
+  .signup h2 { margin-bottom: 16px; }
+  .signup .body {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink-2);
+    margin-bottom: 36px;
+  }
+  form.signup-form {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  form.signup-form input[type="email"] {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color 160ms ease-out;
+  }
+  form.signup-form input[type="email"]:focus {
+    border-color: var(--teal);
+    outline: 2px solid var(--pink);
+    outline-offset: 2px;
+  }
+  form.signup-form input[type="email"]::placeholder {
+    color: var(--ink-3);
+    font-style: italic;
+  }
+  form.signup-form button { flex-shrink: 0; }
+
+  .form-error {
+    color: var(--pink);
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 12px;
+    min-height: 1.2em;
+  }
+
+  .thanks { display: none; }
+  .thanks h3 {
+    margin-bottom: 12px;
+    color: var(--teal);
+    font-size: 32px;
+  }
+  .thanks p {
+    color: var(--ink-2);
+    margin-bottom: 24px;
+    font-size: 17px;
+  }
+  .thanks.is-visible { display: block; }
+  .signup-form.is-hidden { display: none; }
+
+  /* ---------- Footer ---------- */
+  footer.site {
+    background: var(--paper);
+    padding: 40px 0 56px;
+  }
+  footer.site .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  footer.site .rule { width: 100%; margin-bottom: 32px; }
+  footer.site .foot-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  footer.site .foot-mark {
+    font-family: var(--font-display);
+    color: var(--teal);
+    font-size: 20px;
+    letter-spacing: 0.01em;
+  }
+  footer.site nav {
+    display: flex;
+    gap: 28px;
+  }
+  footer.site nav a {
+    color: var(--ink-2);
+    font-size: 15px;
+  }
+  footer.site nav a:hover { color: var(--teal); text-decoration: none; }
+  footer.site .copyright {
+    color: var(--ink-3);
+    font-size: 14px;
+    font-style: italic;
+  }
+</style>
+</head>
+
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="wordmark" href="/" aria-label="Pixel and Scale">
+      <img src="https://images.squarespace-cdn.com/content/v1/685e47ed4fc6e9282fe56d00/99827f16-fd08-4c29-8f86-7d0eee9069db/pixel-scale-logo-square.png?format=300w" alt="Pixel &amp; Scale">
+    </a>
+    <nav class="primary" aria-label="Primary">
+      <a href="/about">About</a>
+      <a href="/services">Services</a>
+      <a href="/brand-lab" class="active" aria-current="page">Brand Lab</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="placeholder ph-16x9" role="img" aria-label="Hero image placeholder">
+        <span class="label">hero image placeholder</span>
+      </div>
+
+      <div style="margin-top: 56px;">
+        <hr class="rule long">
+        <h1 style="margin-top: 24px;">Pixel &amp; Scale Brand <em class="emph">Lab</em></h1>
+        <p class="subhead">Pick colours. Pick fonts. See them in a live mockup. Download a brand sheet.</p>
+        <p class="body-line">A free tool for testing brand directions before you build.</p>
+        <a href="#signup" class="btn">Get free access</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOUR WAYS IN ============ -->
+  <section class="four">
+    <div class="wrap">
+      <div class="section-head">
+        <hr class="rule">
+        <h2>Four ways <em class="emph">in</em></h2>
+        <p class="intro">Start wherever fits the project.</p>
+      </div>
+
+      <div class="placeholder ph-16x9 video-ph" role="img" aria-label="Video placeholder">
+        <span class="label">video placeholder</span>
+      </div>
+
+      <div class="ways">
+        <article class="way">
+          <div class="num">01</div>
+          <h3>Pick a ready-made look.</h3>
+          <p>Ten built palette and font combinations.</p>
+        </article>
+        <article class="way">
+          <div class="num">02</div>
+          <h3>Start from a feeling.</h3>
+          <p>Choose a mood — warm and earthy, coastal and calm, editorial and refined, soft and modern, bold and confident, quiet and neutral. Load a matching palette.</p>
+        </article>
+        <article class="way">
+          <div class="num">03</div>
+          <h3>Upload an image.</h3>
+          <p>Drop in a photo, a mood board or a piece of inspiration. The tool pulls a palette from it.</p>
+        </article>
+        <article class="way">
+          <div class="num">04</div>
+          <h3>Bring your own colours.</h3>
+          <p>Paste hex codes and pair fonts from there.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT YOU GET ============ -->
+  <section class="what-section">
+    <div class="wrap">
+      <div class="what">
+        <div class="placeholder ph-4x3" role="img" aria-label="Photo placeholder">
+          <span class="label">photo placeholder</span>
+        </div>
+
+        <div>
+          <div class="section-head">
+            <hr class="rule">
+            <h2>What you <em class="emph">get</em></h2>
+            <p class="intro">A live brand sheet that updates as you work.</p>
+          </div>
+
+          <ul class="feature-list">
+            <li>
+              <span class="lead-in">Palette.</span>
+              <p class="desc">Six colours, click to recolour, drag to reorder. Copy as hex, CSS or Canva.</p>
+            </li>
+            <li>
+              <span class="lead-in">Typography.</span>
+              <p class="desc">Pair fonts from twenty pairings, or pick your own headings and body from Google Fonts.</p>
+            </li>
+            <li>
+              <span class="lead-in">Mockup.</span>
+              <p class="desc">A real hero section with eyebrow, headline, subhead, button and three offerings. Click any text to edit it.</p>
+            </li>
+            <li>
+              <span class="lead-in">Contrast check.</span>
+              <p class="desc">WCAG ratings for every text-on-background pair in your palette, so you know which combinations are safe for body copy and which are headings only.</p>
+            </li>
+          </ul>
+
+          <p class="closing">Export the whole sheet as a PNG when you're done.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHO IT'S FOR ============ -->
+  <section class="who">
+    <div class="wrap">
+      <div class="section-head">
+        <hr class="rule">
+        <h2>Who it's <em class="emph">for</em></h2>
+      </div>
+
+      <div class="who-body">
+        <p>Built for brand strategists, web designers and virtual assistants who build websites and want a fast way to test combinations before opening Figma or starting a build.</p>
+        <p>Also useful for the people we work with. Some clients want to come in, pick what they like and hand it over. Others want to explore for themselves. The tool works for both.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SIGN UP ============ -->
+  <section class="signup" id="signup">
+    <div class="wrap">
+      <div class="inner">
+        <hr class="rule">
+        <h2>Sign <em class="emph">up</em></h2>
+        <p class="body">Free access while it's in active development. You'll get the link to the live tool and occasional notes when new pairings, mockup layouts and features are added.</p>
+
+        <form class="signup-form" id="signupForm" novalidate="">
+          <label for="email" class="visually-hidden" style="position:absolute;left:-9999px;">Email</label>
+          <input id="email" name="email" type="email" placeholder="your@email.com" autocomplete="email" required="">
+          <button type="submit" class="btn">Sign up</button>
+        </form>
+        <div class="form-error" id="formError" aria-live="polite"></div>
+
+        <div class="thanks" id="thanks" aria-live="polite">
+          <hr class="rule center" style="margin-bottom: 20px;">
+          <h3>Thanks. Your link is below.</h3>
+          <p>The Brand Lab is live and ready to use.</p>
+          <a href="https://pixelandscale.com/brand-lab-tool" class="btn">Open the Brand Lab</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap" style="flex-direction: column; align-items: stretch;">
+    <hr class="rule">
+    <div class="foot-row">
+      <div class="foot-mark">Pixel &amp; Scale</div>
+      <nav aria-label="Footer">
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
+        <a href="/brand-lab">Brand Lab</a>
+        <a href="mailto:hello@pixelandscale.com">Contact</a>
+      </nav>
+      <div class="copyright">© 2026 Pixel &amp; Scale</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var form = document.getElementById('signupForm');
+    var thanks = document.getElementById('thanks');
+    var err = document.getElementById('formError');
+    var input = document.getElementById('email');
+
+    function isValidEmail(v) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var v = (input.value || '').trim();
+      if (!isValidEmail(v)) {
+        err.textContent = 'Please enter a valid email address.';
+        input.focus();
+        return;
+      }
+      err.textContent = '';
+      form.classList.add('is-hidden');
+      thanks.classList.add('is-visible');
+      // Scroll the thanks block into the comfortable middle of the viewport
+      // via window scroll (avoid scrollIntoView).
+      var rect = thanks.getBoundingClientRect();
+      var target = window.scrollY + rect.top - 120;
+      window.scrollTo({ top: target, behavior: 'auto' });
+    });
+  })();
+</script>
+
+
+
+</body></html>
